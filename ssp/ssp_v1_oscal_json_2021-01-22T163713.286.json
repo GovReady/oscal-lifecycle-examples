@@ -1,0 +1,1801 @@
+{
+ "system-security-plan": {
+  "uuid": "35ffac41-9fe0-49d1-a8c0-248b34710a8c",
+  "metadata": {
+   "title": "My IT System",
+   "last-modified": "2021-01-14 22:40:54.237236+00:00",
+   "version": "1.2.3",
+   "oscal-version": "1.0.0rc1"
+  },
+  "import-profile": {
+   "href": "http://localhost:8000/controls/1/profile/oscal/json"
+  },
+  "system-characteristics": {
+   "system-ids": [
+    {
+     "id": "govready-1"
+    }
+   ],
+   "system-name": "My IT System",
+   "system-name-short": "ITS",
+   "description": "It does things\\.",
+   "security-sensitivity-level": "Low",
+   "system-information": {
+    "information-types": [
+     {
+      "title": "UNKNOWN information type title",
+      "description": "information type description",
+      "confidentiality-impact": {
+       "base": "information type confidentiality impact"
+      },
+      "integrity-impact": {
+       "base": "information type integrity impact"
+      },
+      "availability-impact": {
+       "base": "information type availability impact"
+      }
+     }
+    ]
+   },
+   "security-impact-level": {
+    "security-objective-confidentiality": "UNKNOWN",
+    "security-objective-integrity": "UNKNOWN",
+    "security-objective-availability": "UNKNOWN"
+   },
+   "status": {
+    "state": "operational"
+   },
+   "authorization-boundary": {
+    "description": "System authorization boundary, TBD"
+   }
+  },
+  "system-implementation": {
+   "users": {
+    "c721f402-5c76-46e1-90f2-5dd435cf8849": {
+     "title": "administrator"
+    }
+   },
+   "components": {
+    "241704dd-78be-46cc-8542-51574711e45c": {
+     "type": "software",
+     "title": "AWS",
+     "description": "AWS",
+     "status": {
+      "state": "operational"
+     }
+    },
+    "bba29c21-89bc-4201-9982-633334c2aad2": {
+     "type": "software",
+     "title": "Drupal",
+     "description": "Drupal",
+     "status": {
+      "state": "operational"
+     }
+    },
+    "af8b7ee0-e02f-424a-86f6-995c074f675f": {
+     "type": "software",
+     "title": "SSH",
+     "description": "SSH",
+     "status": {
+      "state": "operational"
+     }
+    },
+    "5b43cd7a-22d8-4ad0-b70f-c2e45a10f6ec": {
+     "type": "software",
+     "title": "This System",
+     "description": "",
+     "status": {
+      "state": "operational"
+     }
+    }
+   }
+  },
+  "control-implementation": {
+   "description": "Control implementations",
+   "implemented-requirements": [
+    {
+     "uuid": "43c115b7-297f-4853-8762-952bde9581c0",
+     "control-id": "ac-1",
+     "parameter-settings": {
+      "ac-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "ac-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ac-1_smt": {
+       "uuid": "d3cedc53-16b8-4b1d-bc8d-67cff9b7c9cb",
+       "by-components": {
+        "5b43cd7a-22d8-4ad0-b70f-c2e45a10f6ec": {
+         "uuid": "88bb0430-446e-41cc-818a-3d32b507c919",
+         "description": "Statement about AC-1"
+        }
+       }
+      },
+      "ac-1_smt.a": {
+       "uuid": "0ad4b106-9aec-48d0-a275-2090326b49fe",
+       "by-components": {
+        "5b43cd7a-22d8-4ad0-b70f-c2e45a10f6ec": {
+         "uuid": "6834d69d-f1e4-4c14-922e-e28d4c33e4d0",
+         "description": "Part a!"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "f21221be-ebc3-48f6-8990-db73f4a5bc43",
+     "control-id": "ac-14",
+     "parameter-settings": {},
+     "statements": {
+      "ac-14_smt.a": {
+       "uuid": "3e557df8-711d-4e37-9da2-c4efa2cb0dff",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "e51134de-ca83-40de-9dc8-05fd9f0b9b1a",
+         "description": "The anonymous user role has the least access to the site of all roles. Drupal sites can be configured to allow actions identified by The Project"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "e5e72d29-68fb-44e9-805e-a3318a46d377",
+     "control-id": "ac-2",
+     "parameter-settings": {
+      "ac-2_prm_4": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ac-2_smt": {
+       "uuid": "c4b3e34c-e850-46d3-b470-17d9c8985d22",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "5eefae02-23b7-40b5-b978-82459a055e4b",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: AWS account management."
+        }
+       }
+      },
+      "ac-2_smt.a": {
+       "uuid": "8f0303d7-f461-4d34-b72d-2c893e857731",
+       "by-components": {
+        "5b43cd7a-22d8-4ad0-b70f-c2e45a10f6ec": {
+         "uuid": "1edddcfc-c03f-477b-8d51-d92356042de4",
+         "description": "This system and AC-2"
+        },
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "ab64063e-80a7-4638-894a-43063f2b8739",
+         "description": "In this architecture, the baseline AWS Identity and Access Management (IAM) groups and roles are associated with access policies to align user accounts with personnel functions related to infrastructure/platform management (e.g. Billing, Amazon EC2/VPC/Amazon RDS systems administration, I.T. auditing, etc.)"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "f00caccf-e74e-4928-b445-6d414d38ef94",
+         "description": "Drupal provides the following information system account types to support organizational mission/business functions:\n\n- Anonymous user - readers of the site who either do not have an account or are not\n  logged in.\n\n- Authenticated user - All non-anonymous users inherit the &#34;authenticated user role&#34;\n  that supports personal account management capabilities.\n\n- Administrator - This role has all permissions enabled by default."
+        },
+        "af8b7ee0-e02f-424a-86f6-995c074f675f": {
+         "uuid": "6ff278f9-bef7-486d-aa80-5786ba36bb8f",
+         "description": "Operations, in collaboration with the Security Office, will set up privileged accounts accounts for the following roles:\n- Developer - user level account that has access to application features and sanitized databases\n- System Administrator - user accounts that enjoy full system administrator (`sudo`) access"
+        }
+       }
+      },
+      "ac-2_smt.b": {
+       "uuid": "716aa294-574b-4d93-be8b-7c966a20082c",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "7bb6ee20-b368-4ca6-8be3-6231f8528442",
+         "description": "Drupal defines a default set of roles; Anonymous, Authenticated, and Administrator, as well as providing for the creation of additional organizational-defined roles identified by The Project"
+        }
+       }
+      },
+      "ac-2_smt.d": {
+       "uuid": "a5ec44c3-c806-4f88-b58a-4ba76d5d1ca0",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "b80759e6-00b9-4069-bd1c-0f6289653a48",
+         "description": "Drupal has a sophisticated permissions and role-based access control built-in. Each role within Drupal can only access the documents and controls for which their privilege allows."
+        }
+       }
+      },
+      "ac-2_smt.g": {
+       "uuid": "2a50619d-3a7a-468a-b8fa-8923d18b411e",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "72da6a47-9f05-4383-95eb-86d3e5dbf188",
+         "description": "In this architecture, AWS CloudTrail and Amazon S3 Bucket logging are enabled, which provide the audit trail capability for the organization to monitor the use of AWS Identity and Access Management (IAM) accounts. An Amazon S3 bucket centrally contains the CloudTrail audit logs. Amazon CloudWatch Alarm is configured to send an alert when any of the following happen:\n  - an API call is made to create, update, or delete a Network ACL/Security Group\n  - AWS account *root user* activity is detected\n  - multiple API actions or login attempts fail\n  - IAM Configuration changes are detected\n  - new IAM access key was created\n  - changes to the CloudTrail log configuration are detected"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "a7f07509-032b-4928-9895-1465bcc57b2a",
+         "description": "Drupal monitors the usage of information accounts in the Watchdog log."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "79511c35-6b51-41b0-96b3-c11bdc6d02d8",
+     "control-id": "ac-3",
+     "parameter-settings": {},
+     "statements": {
+      "ac-3_smt": {
+       "uuid": "25054bc9-df9b-448f-8419-c42de9067778",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "e71b34ca-d131-4549-a8eb-3bf84de9636a",
+         "description": "In this architecture, AWS Identify and Access Management (IAM) and Amazon Amazon S3 enforce access to the AWS infrastructure and data in Amazon S3 buckets. The baseline IAM groups and roles are associated with access policies to align user accounts with personnel functions related to infrastructure/platform management (e.g. Billing, Amazon EC2/VPC/Amazon RDS systems administration, I.T. auditing, etc.) Login/API access is restricted to those users for whom the organization has authorized and created, or federated, IAM user accounts, and assigned the appropriate IAM group and/or role memberships. Amazon S3 buckets have specific access control policies assigned to restrict access to those IAM users who are assigned the appropriate IAM roles/groups."
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "e6e21ba9-8cde-4a95-8500-1cdafc63eda5",
+         "description": "Access control in Drupal is enforced by authentication via a unique username/password for every type of user except Anonymous user. The user\u2019s privileges, permissions, and access are provided on the principle of least privilege.\nThe anonymous user role has the least access to the site of all roles. The website does not allow anonymous users to register an account for themselves. Drupal Administrators are the only user roles that can create new user accounts."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "ec56a8b2-5bfa-4dc7-ab11-acf803f3afd3",
+     "control-id": "ac-6",
+     "parameter-settings": {},
+     "statements": {
+      "ac-6_smt": {
+       "uuid": "faf8ee1f-df11-4673-99eb-236090432257",
+       "by-components": {
+        "af8b7ee0-e02f-424a-86f6-995c074f675f": {
+         "uuid": "df8325f6-f527-4843-945c-71ee0cb28c47",
+         "description": "SSH access is provided on a least privilege basis and analyzed on an ongoing basis, at least quarterly. Findings related to these audits of accounts are reported and reviewed by the Security Office and evaluated to determine roles that need to be revoked."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "c275a724-be9e-4a81-bfd5-8c26b9ec8dac",
+     "control-id": "ac-7",
+     "parameter-settings": {
+      "ac-7_prm_1": {
+       "values": [
+        "not more than three (3)"
+       ]
+      },
+      "ac-7_prm_2": {
+       "values": [
+        "fifteen (15) minutes"
+       ]
+      },
+      "ac-7_prm_4": {
+       "values": [
+        "locks the account/node for thirty minutes"
+       ]
+      }
+     },
+     "statements": {
+      "ac-7_smt.a": {
+       "uuid": "e31ffea7-b334-4b57-9dda-694def0ad15f",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "74365155-74cd-4a34-921c-8fde7b3310ba",
+         "description": "Drupal can be configured to lock an account after a specified number of invalid login attempts within a specified time period. The default for Drupal is 5 failed login attempts within six hours."
+        }
+       }
+      },
+      "ac-7_smt.b": {
+       "uuid": "3458480f-34df-44c3-b929-f8d2d8205211",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "223a04cc-b5d1-44c7-8001-f3e35d2bce0d",
+         "description": "Lockdown following unsuccessful attempts is configurable by Drupal administrators to conform to defined requirements. When a user exceeds the limit of invalid login attempts, their account is automatically locked for a specified time and requires administrator action to unlock the account before the lockout period expires."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "4319f6d9-125d-4942-9db8-e311893f158d",
+     "control-id": "au-11",
+     "parameter-settings": {
+      "au-11_prm_1": {
+       "values": [
+        "at least ninety days"
+       ]
+      }
+     },
+     "statements": {
+      "au-11_smt": {
+       "uuid": "ba327362-5937-4a1c-abba-df01f74b774c",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "c52ba674-766c-4c1c-9429-2556699da099",
+         "description": "AWS CloudTrail logs are stored in an Amazon S3 bucket, which dynamically allocates storage capacity to support continuous collection and storage of AWS CloudTrail log data. The storage capacity supports indefinite retention, but with 7 year retention specified, and migration to Amazon Glacier after 90 days in AWS regions where Glacier is available."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "01b8d550-fccd-4478-8fc6-aea3ba6472f1",
+     "control-id": "au-12",
+     "parameter-settings": {
+      "au-12_prm_1": {
+       "values": [
+        "all information system and network components where audit capability is deployed/available"
+       ]
+      }
+     },
+     "statements": {
+      "au-12_smt.a": {
+       "uuid": "50928b98-b750-4450-bbd0-5f89957ea55a",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "0075b83e-4d90-4853-9cb3-9b5919cece4b",
+         "description": "In this architecture, AWS CloudTrail, Amazon S3 bucket logging, Elastic Load Balancing (ELB) logging, and Amazon RDS MySQL error logging are  enabled, but initial Amazon EC2 instances launched by this deployment (bastion host, application servers, proxy servers, and any Amazon EC2-based NAT servers) do not have auditing enabled within the OS, as these are for example purposes only.\n\nAWS built-in features of logging mechanisms provide the audit record generation capability for the auditable events defined in AU-2a. by logging all security-relevant IAM user and API activities which address AWS infrastructure components (AWS Products and services), ELB"
+        }
+       }
+      },
+      "au-12_smt.b": {
+       "uuid": "cf5f341b-df1a-4d4d-b0a4-c34fda0e913d",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "9571edad-dbfd-47ab-bb13-08d0075400ea",
+         "description": "In this architecture, AWS CloudTrail, Amazon S3 bucket logging, Elastic Load Balancing (ELB) logging, and Amazon RDS MySQL error logging are enabled AWS CloudTrail is enabled to log all available API events automatically within the AWS infrastructure and Amazon S3 bucket logging is enabled to log bucket activity.\n\nAWS built-in features of Identity and Access Management (IAM) allows policy to be applied to privileged users for administrator/audit access, allowing them to modify Amazon CloudWatch alarms, AWS Config rules, and Amazon S3 bucket logging to select the CloudTrail and Amazon S3 events that are to cause notification, alerting and automated reaction."
+        }
+       }
+      },
+      "au-12_smt.c": {
+       "uuid": "dfdc6e68-d88e-4b7e-8236-802cfaee6757",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "643f5c5e-2b0e-4af1-891c-e8046f37d069",
+         "description": "In this architecture, AWS CloudTrail, Amazon S3 bucket logging, Elastic Load Balancing (ELB) logging, and Amazon RDS MySQL error logging are enabled. However, the initial Amazon EC2 instances launched by this deployment (bastion host, application servers, proxy servers, and any Amazon EC2-based NAT servers) DO NOT have any auditing enabled within the OS, as these are in place for example purposes only.\n\nAWS built-in features of native logging generates audit records with the content defined in AU-3.\n\nAWS logging information:\n\n- AWS native logging: https://aws.amazon.com/answers/logging/aws-native-security-logging-capabilities/\n- AWS CloudTrail logs: http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference.html\n- Amazon S3 bucket logs: http://docs.aws.amazon.com/amazons3/latest/dev/ServerLogs.html\n- ELB logs: http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html\n\n    http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html\n\n- Amazon RDS logs: http://docs.aws.amazon.com/amazonrds/latest/UserGuide/USER_LogAccess.html"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "9acf5316-cfb6-4e4e-815f-9732d6a30918",
+     "control-id": "au-2",
+     "parameter-settings": {
+      "au-2_prm_1": {
+       "values": [
+        "successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes"
+       ]
+      },
+      "au-2_prm_2": {
+       "values": [
+        "organization-defined subset of the auditable events defined in AU-2 a to be audited continually for each identified event"
+       ]
+      }
+     },
+     "statements": {
+      "au-2_smt.a": {
+       "uuid": "5f3e669a-3f9f-48c1-92c7-3de792133179",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "df11bc5b-2782-4714-8f49-855115add9f7",
+         "description": "In this architecture, the following audit methods log all security-relevant user/API activities and Amazon S3 data access activities, and support the capability to audit organizationally defined events:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "a8651dd6-e34e-4de1-975b-45e4a35139e5",
+         "description": "Drupal&#39;s Watchdog log are configured to track all relevant auditable events as defined by Client\n\n- Apache access log: Contains a list of requests for your website that have bypassed Varnish. These requests include pages, theme files, and static media files.\n- Apache error log: Records any Apache-level issues. The issues reported here are usually caused by general server issues, including capacity problems, .htaccess problems, and missing files.\n- Drupal page request log: Records all Drupal page loads on your website.\n- Drupal Watchdog log: Records Drupal-related actions on your website. The Watchdog log is recorded on your database if you have enabled the syslog module.\n- MySQL slow query log: Contains a list of MySQL queries that have taken longer than one second to complete.\n- PHP error log: Records any issues that occur during the PHP processing portion of a page load. Issues reported here are usually caused by a website\u2019s code, configuration, or content."
+        }
+       }
+      },
+      "au-2_smt.c": {
+       "uuid": "91f25770-d3bb-413b-b388-1ecdaa6b89ff",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "97ebfc30-8b2a-4c07-a34c-695f3d870693",
+         "description": "In this architecture, the following audit methods provide data on activities occurring within the infrastructure:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging"
+        }
+       }
+      },
+      "au-2_smt.d": {
+       "uuid": "a238bde9-57c5-4230-9842-1c2f01e2c88d",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "2eb469c5-b262-47d9-a82a-511790233486",
+         "description": "In this architecture, the following audit methods log all security-relevant events and errors related to IAM user and API activities, Amazon S3 data access, network access, and Amazon RDS database errors, and support the capability to audit organizationally defined events:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "ec67550c-d5cc-4b40-b42b-d56353a323de",
+         "description": "Information captured in the transaction logs includes, but is not limited to, the following auditable events:\n\n- Failed login attempts\n- Successful login attempts\n- User account deletions\n- User account blocking/unblocking\n- Changes in user role assignments\n- Unauthorized attempts to alter protected user fields\n- New user account creation\n- Password reset instructions mailed\n- User logins via a one-time login link\n- User logouts\n- Content creation (datasets, resources and other content types)\n- Content modification\n- Content deletion\n- Content publishing\n- Content unpublishing\n- File uploads\n- Web page not found\n- Website configuration changes\n- System administration activities\n- Slow query logs.\n- PHP error logs: Captures any errors logged during execution of the PHP programming language."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "41dc4d3e-35a5-400f-a987-dd810823ca3c",
+     "control-id": "au-3",
+     "parameter-settings": {},
+     "statements": {
+      "au-3_smt": {
+       "uuid": "56b6e051-6e3a-40d1-aeaf-0b476d55e81d",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "34435fd5-0635-405c-91dc-94775a1e7520",
+         "description": "In this architecture, the following audit methods generate records with the level of detail specified for the control:\n\n- **AWS CloudTrail logging**: Provides information on activities\n  related to infrastructure changes.\n\n- **Amazon S3 bucket logging**: Provides data on activities related to the\n  access or manipulation of data stored in Amazon S3.\n\n- **Elastic Load Balancing (ELB) logging**: Provides information about\n  requests or connections.\n\n- **Amazon RDS MySQL error logging**: Captures errors encountered by the\n  database engine. In addition, the MySQL general query log can be enabled\n  by the customer organization to capture when clients connect or disconnect\n  and SQL statements received from clients.\n\n\nAWS logging information:\n\n- AWS native logging: https://aws.amazon.com/answers/logging/aws-native-security-logging-capabilities/\n- AWS CloudTrail logs: http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference.html\n- Amazon S3 bucket logs: http://docs.aws.amazon.com/amazons3/latest/dev/ServerLogs.html\n- ELB logs: http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html\n    http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html\n\n- Amazon RDS logs: http://docs.aws.amazon.com/amazonrds/latest/UserGuide/USER_LogAccess.html"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "b370d924-ca4c-4d15-ac2b-aa414eb4d55d",
+         "description": "The logs collected for Drupal sites include the following types of information:\n\n- IP number of the request originator\n- Timestamp\n- Request URL\n- HTTP status code returned\n- Username\n- Drupal Watchdog message (if applicable)\n- Unique numerical ID of the content being modified (for content creation, modification and deletion events)\nWhen auditing a Drupal incident, the CivicActions developers aggregate log sources from multiple servers into the Graylog dashboard so that all log entries for a single managed security incident can be analyzed in a single document. Log sources are sorted, filtered and reviewed. Application logs are maintained primarily for an after-the-fact investigation of critical systems or security events."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "e129f842-f20c-418f-80f5-dcc696f6e994",
+     "control-id": "au-4",
+     "parameter-settings": {},
+     "statements": {
+      "au-4_smt": {
+       "uuid": "271767f6-01e2-4f73-a622-d35d656edfa3",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "2d01c217-7747-42d6-afb4-745ba5e2c65d",
+         "description": "In this architecture, logs track dynamic capacity growth to accommodate organizationally defined storage capacity requirements. Amazon S3 buckets are established to store audit logs from the following audit methods:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "73268285-9114-4d75-9c0e-4b4e1f7d2eca",
+     "control-id": "au-5",
+     "parameter-settings": {
+      "au-5_prm_2": {
+       "values": [
+        "organization-defined actions to be taken (overwrite oldest record)"
+       ]
+      }
+     },
+     "statements": {
+      "au-5_smt.a": {
+       "uuid": "b9d30c22-9a52-4c3a-b95d-97de7e9f8529",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "9db164f6-0633-4d06-9228-7836a7e82686",
+         "description": "In this architecture, AWS CloudTrail is enabled, and provides the basis for audit processing within the infrastructure.\n\nAWS built-in features include customer alerting of AWS CloudTrail and other service failures through the following:\n\n- AWS Service Health Dashboard (http://status.aws.amazon.com)\n- RSS feeds to which the customer organization can subscribe\n- email\n- alerts sent directly to the AWS account *root user* for critical events\n- AWS internal Incident Response and corporate communications processes"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "09c58a6a-c125-41d5-b35e-58e5edcee62f",
+     "control-id": "au-8",
+     "parameter-settings": {},
+     "statements": {
+      "au-8_smt.a": {
+       "uuid": "e5adca11-45d0-4a6f-9888-39b9038d7075",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "fb775035-310c-4e0c-a149-115fcca13ca1",
+         "description": "AWS includes the Amazon Time Sync Service. Running over Network Time Protocol (NTP), this service synchronizes the time on AWS instances using redundant satellite-connected and atomic clocks in all public AWS regions. The Amazon Time Sync Service provides accurate time stamp data to the following audit methods:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging"
+        }
+       }
+      },
+      "au-8_smt.b": {
+       "uuid": "86b1ba4a-1f8c-463a-9d95-a719a509b8d2",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "a435c799-e637-439f-912f-ac5a0e5d33cc",
+         "description": "The Amazon Time Sync Service provides accurate time stamp data to the following audit methods:\n\n- AWS CloudTrail logging\n- Amazon S3 bucket logging\n- Elastic Load Balancing (ELB) logging\n- Amazon RDS MySQL error logging\n\nTime stamps are recorded as specified in the ISO 8601 standard. ISO 8601 represents local time (with the location unspecified), as UTC, or as an offset from UTC."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "0ce042a5-649a-46c2-b10c-bf2647188131",
+     "control-id": "au-9",
+     "parameter-settings": {},
+     "statements": {
+      "au-9_smt": {
+       "uuid": "18037379-afc8-4ec6-95cc-10d8fa60eb31",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "c116455f-aae4-41cf-bdb4-1db3f1a0750b",
+         "description": "Access to audit data and tools is determined by access control policies for IAM groups and roles. Only users assigned to IAM groups and roles with access to audit data and tools can access them. Additionally, AWS uses server-side encryption on Amazon S3 bucket logs, and maintains them as read-only files."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5fb4469a-a996-4490-8e37-702d9a20be19",
+     "control-id": "ca-7",
+     "parameter-settings": {
+      "ca-7_prm_4": {
+       "values": [
+        "to meet Federal and FedRAMP requirements (See additional guidance)"
+       ]
+      },
+      "ca-7_prm_5": {
+       "values": [
+        "to meet Federal and FedRAMP requirements (See additional guidance)"
+       ]
+      }
+     },
+     "statements": {
+      "ca-7_smt.a": {
+       "uuid": "c50efe70-d4e8-4e9b-b207-024b16943173",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "497d7d0a-c64d-43db-9081-9e0c756f21a9",
+         "description": "CivicActions follows recommendations and best practices developed by the Drupal community for monitoring. Examples of specific logs and metrics are included in AU-2 and AU-3."
+        }
+       }
+      },
+      "ca-7_smt.c": {
+       "uuid": "1aa61a53-31cf-4d1f-84e7-632fc45e27ae",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "dec94729-3a88-4631-9d06-351f86aa0b16",
+         "description": "CivicActions works closely with the Drupal security community and reviews security announcements as part of the continuous monitoring strategy. Items found to require immediate remediation will be addressed."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "6591b5a4-ec5d-4d87-8cf7-1865552c5d9d",
+     "control-id": "cm-2",
+     "parameter-settings": {},
+     "statements": {
+      "cm-2_smt": {
+       "uuid": "d6aaf71e-9568-411e-a66e-5bcb6f2eb693",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "0188bf47-a97f-405f-b29b-246dec6eafba",
+         "description": "Hardware Baselines\n\nAll hardware is maintained by the AWS cloud. The system inherits hardware configuration aspects of this control from the FedRAMP Provisional ATO granted to AWS, dated 1 May 2013, for the following: baseline configuration."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "22fe67f4-71ee-46ae-bc42-f73d1878eccf",
+     "control-id": "cm-7",
+     "parameter-settings": {
+      "cm-7_prm_1": {
+       "values": [
+        "United States Government Configuration Baseline (USGCB)"
+       ]
+      }
+     },
+     "statements": {
+      "cm-7_smt.a": {
+       "uuid": "c645a95e-496f-4e04-b8e1-5890b4f4cc0f",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "7e0a4493-992b-43c1-a1ac-a56016239997",
+         "description": "In this architecture, only essential capabilities for a multi-tiered web service are configured. AWS Identity and Access Management (IAM) baseline Groups and Roles are configured to support restricted access to AWS resources by privileged users and non-person entities (Amazon EC2 systems operating with a role) authorized and assigned by the organization."
+        }
+       }
+      },
+      "cm-7_smt.b": {
+       "uuid": "c68568d4-6c36-4db6-b6c4-bf46efe70d3e",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "45bb3c29-6928-40f7-9758-28cce60dc203",
+         "description": "In this architecture, ports, protocols, and services are restricted to those that are required for a multi-tiered web service, via AWS security group rules."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "ebb68e94-bc11-4c9d-aa0d-eb360b4cf2eb",
+     "control-id": "cm-8",
+     "parameter-settings": {
+      "cm-8_prm_2": {
+       "values": [
+        "at least monthly"
+       ]
+      }
+     },
+     "statements": {
+      "cm-8_smt.a": {
+       "uuid": "150e0fbf-840b-4122-be23-38a20e3f7393",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "f425d27b-8428-4350-9081-4795f00552c3",
+         "description": "AWS built-in features dynamically build and maintain an inventory of system components (infrastructure inventory)\n\n1. AWS built-in features provide an accurate, real time inventory of all infrastructure system and network components within the customer account and provides a single view for granularity for tracking and reporting.\n2. AWS built-in features provide an accurate, real time inventory of all infrastructure system and network components within the AWS account, and  AWS CloudFormation creates a unique set of stack names, and associated resource names  incorporate the stack name, for tracking components deployed by CloudFormation templates that align with an authorization boundary.\n3. AWS built-in features provide a level of granularity for tracking and reporting on all infrastructure system and network components and configuration settings for those components.\n4. AWS built-in features provide all available information about all infrastructure system and network components to achieve effective component accountability."
+        }
+       }
+      },
+      "cm-8_smt.b": {
+       "uuid": "c68442cb-f762-406b-b7b6-a06cbed3c06c",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "45914e90-5da6-4731-b998-aba9a7b3ddad",
+         "description": "AWS built-in features provides a dynamically updated inventory of all infrastructure system and network components within the customer account. The AWS management console and AWS API calls support the capability for the organization to review the inventory."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "f534f523-22ef-44ee-a03c-76f49b2531d6",
+     "control-id": "cp-9",
+     "parameter-settings": {
+      "cp-9_prm_1": {
+       "values": [
+        "daily incremental; weekly full"
+       ]
+      },
+      "cp-9_prm_2": {
+       "values": [
+        "daily incremental; weekly full"
+       ]
+      },
+      "cp-9_prm_3": {
+       "values": [
+        "daily incremental; weekly full"
+       ]
+      }
+     },
+     "statements": {
+      "cp-9_smt.a": {
+       "uuid": "90c73e9c-3677-42d9-b8a5-046a901f31bc",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "f763c9ed-8497-4053-b971-49ab69c41a39",
+         "description": "In this architecture, user data is limited to that which is stored in the Amazon RDS database. Amazon RDS is fully backed up by a daily snapshot as well as through transaction logging conducted by AWS as part of this managed service. Full database recovery from snapshot or point-in-time can be initiated from the Amazon RDS console/API."
+        }
+       }
+      },
+      "cp-9_smt.b": {
+       "uuid": "55a9ef78-979c-4196-b939-2dcf21b53405",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "1a750ec3-44a9-4d35-b273-010e01a923e7",
+         "description": "AWS built-in features automatically backs up system-level information limited to infrastructure CONFIGURATION information within the AWS account. While individual running Amazon EC2 instances and attached EBS volumes are NOT backed up, they can be reconstituted from Amazon Machine Images (AMIs) provided by AWS (which are backed up by AWS) and user data scripts included in CloudFormation templates. Once deployed, the CloudFormation template contents are backed up by AWS R488within the CloudFormation service. These AWS backups of AWS services are transparent to the customer as part of AWS backend processes."
+        }
+       }
+      },
+      "cp-9_smt.c": {
+       "uuid": "1c8d6e6b-b39a-4f5d-b863-0f0082569faf",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "ea8b69d5-0335-4f0f-b36f-e89f0f80b961",
+         "description": "AWS built-in features back up online administrator and developer documentation, limited to that which is published at https://aws.amazon.com/documentation."
+        }
+       }
+      },
+      "cp-9_smt.d": {
+       "uuid": "472dc6f1-e722-442d-8890-47f0e547768a",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "5d552f7f-da65-4ba0-9a4c-253f66831f14",
+         "description": "AWS built-in features protect the confidentiality, integrity, and availability of information that AWS services back up. This information includes the service configuration information within an account, AWS online administrator and developer documentation, and AWS CloudFormation stacks for templates once deployed into an account. R612"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "ac32fc9f-32f8-4e1a-b97d-85f3ad91fac3",
+     "control-id": "ia-2",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2_smt": {
+       "uuid": "5539d621-0d50-4d6a-a89e-e4b6d4f0c823",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "2ef9096e-1c10-4893-85e3-e1f13a48d93a",
+         "description": "AWS built-in features of Identity and Access Management (IAM) provides the capability for uniquely identifying and authenticating users and processes acting on their behalf to both organizational and non-organizational users operating within the AWS account and infrastructure, providing privileges based on the credentials, group memberships, and access policies assigned to them. The customer organization, at its discretion, provides individual user accounts and privileges to both organizational non-organizational users in addition to organizational users."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5e891007-eedc-419d-ac21-64e1e921be7f",
+     "control-id": "ia-2.1",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.1_smt": {
+       "uuid": "0970c539-f400-45b0-8e31-891136e9894f",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "0d57f637-d64c-443a-a7a7-4b86f7522064",
+         "description": "Drupal administrators and other roles with unrestricted access to live content and/or user accounts are required to use two-factor authentication. See artifact None"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "3a2ad915-5744-4629-b556-f088b40edf76",
+     "control-id": "ia-4",
+     "parameter-settings": {
+      "ia-4_prm_2": {
+       "values": [
+        "IA-4 (d) [at least two years]"
+       ]
+      },
+      "ia-4_prm_3": {
+       "values": [
+        "ninety days for user identifiers (See additional requirements and guidance)"
+       ]
+      }
+     },
+     "statements": {
+      "ia-4_smt.a": {
+       "uuid": "7417d766-f6e9-4a6b-bd76-875bdb944c33",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "16a6ce5e-31fb-4c90-827c-d01d2c801e73",
+         "description": "Upon account creation, the Drupal software assigns each user account a unique numerical user ID (UID). This UID is used internally by the system to track user actions such as content creation or editing. The numerical user IDs are never reused even if their user accounts are subsequently blocked or deleted."
+        }
+       }
+      },
+      "ia-4_smt.b": {
+       "uuid": "532e5c33-b4fd-45eb-8705-72814ff5acde",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "37d8ceef-03b8-48d8-be44-ba9eca5bfe88",
+         "description": "When Drupal user accounts are created, users&#39; email addresses are verified by sending a single-use activation link to the user\u2019s mailbox. The email recipient then uses the activation link to log in to the website and supply a password which must meet the system&#39;s password complexity requirements."
+        }
+       }
+      },
+      "ia-4_smt.c": {
+       "uuid": "cdb23d34-8113-422c-8048-0c57e50cd651",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "fcc81c53-bc53-4ebc-adfb-36e785348823",
+         "description": "Identifiers for CivicActions internal personnel include a username based on the individual&#39;s full first and last name and are reviewed for uniqueness by the admin group when it approves the creation of the user account."
+        }
+       }
+      },
+      "ia-4_smt.d": {
+       "uuid": "d06ba6c3-8adb-4930-b6fa-3cb122e6ff02",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "36291f3e-6237-41c3-a8c8-0577d6e3bddc",
+         "description": "Drupal user&#39;s unique identifier (the numeric user ID, or UID) is never reused."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "2c237517-690e-475a-a395-c4d344b31caf",
+     "control-id": "ia-5",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5_smt.a": {
+       "uuid": "5c48f9be-4edc-495c-b3f2-e18cff163f33",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "8696fcce-4893-4639-a1fb-9227f54e7de7",
+         "description": "Refer to control AC-2 in this SSP for further details on account provisioning.\nCivicActions will create and maintain an initial Drupal Administrator (highest level of Drupal Account). New Administrators are able to provide additional Administrator access at their own discretion and are ultimately responsible for managing their own Administrator and other user accounts that they create."
+        }
+       }
+      },
+      "ia-5_smt.b": {
+       "uuid": "ba78db8f-43dc-49e9-8d36-ba82d82156f6",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "4cdabfd2-2165-48a2-b1dd-ea01ef15b5da",
+         "description": "Initial authenticator content (a unique email address \u2013 not previously used in any other account) is provided by the user. Internal initial password requirements set by CivicActions Operations and ongoing password refreshes by internal users follow the requirements set in the Identification and Authentication Policy."
+        }
+       }
+      },
+      "ia-5_smt.c": {
+       "uuid": "a5972b48-f5e6-4ed1-9f49-ad1e8b930ad2",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "27e576b9-311f-4bf9-a2ea-17cfddf2402b",
+         "description": "The system partially inherits this control from Drupal standard password strength mechanisms."
+        }
+       }
+      },
+      "ia-5_smt.d": {
+       "uuid": "51d01c22-7208-43db-895b-f70e18bff559",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "651732f8-2fe9-4c68-9e31-dcb892f9eeca",
+         "description": "The system partially inherits this control from Drupal standard password management. All password creation/change/reset operations are recorded in the website&#39;s &#34;Drupal Watchdog&#34; logs."
+        }
+       }
+      },
+      "ia-5_smt.e": {
+       "uuid": "3c6ff020-6c70-4c25-96fa-b7bd4f6754d3",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "0261abca-6d5b-4a0f-9358-6112134d840f",
+         "description": "Drupal requires users to change their password upon initial login, and the application website enforces this. Each user account is assigned a default password that is randomly generated, not possible to guess, and not shared with anyone, including site administrators. When the user logs in and creates a new password, the default password is erased from the website database."
+        }
+       }
+      },
+      "ia-5_smt.h": {
+       "uuid": "3df0f491-3a25-42f1-a465-3e6fd24f2013",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "23f64d81-6149-4b9a-93f8-6dd3339c66f9",
+         "description": "For all Drupal users, passwords are protected by the website&#39;s software, which only stores an encrypted string based on the password. This means that even if the website&#39;s database should be compromised, an attacker would still be unable to know users&#39; actual passwords. Internal users receive training in security awareness and acceptable use and are instructed never to reveal their passwords to anyone."
+        }
+       }
+      },
+      "ia-5_smt.i": {
+       "uuid": "59144f6f-1429-4e4d-86aa-5a93caee0009",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "875837dd-4c47-416b-9046-c6f94a2a0801",
+         "description": "Drupal users are required to take appropriate measures in the handling of passwords including:\n\n- Not transmitting user names and passwords together in an unencrypted format\n- Not permitting the sending of passwords in an unencrypted format via email\n- Not listing passwords in tickets\n- Not writing down or storing passwords in a readable form in any physical or logical location where they may be discoverable by unauthorized persons."
+        }
+       }
+      },
+      "ia-5_smt.j": {
+       "uuid": "07cf21f7-5719-4d24-bac3-a1ebc5768e7e",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "568a90a9-c426-440a-bf7e-22523e54d474",
+         "description": "This control is not applicable due to the fact that group accounts are not created within the Drupal application per IA Policy."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5398aa3c-9763-476a-a43e-8e0c00ffe8fd",
+     "control-id": "ia-5.1",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5.1_smt.a": {
+       "uuid": "a9284d29-992a-4419-9889-f2e8ec45a873",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "29363350-bd4f-4010-8345-7f740fd58e49",
+         "description": "AWS built-in features of Identity and Access Management (IAM) provides minimum password complexity enforcement, but the characteristics to enforce must be manually configured by the customer. Refer to http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html"
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "67c928c0-23bb-4f62-8eed-93fa489eafa2",
+         "description": "Drupal supports the requirement for password-based authentication complexity. New users of Drupal are required to specify their password authentication as soon as they log in to the website for the first. The website requires all submitted passwords to comply with validation rules, as described above in IA-5(c).\nChanging password lifetime, length, reuse or strength requirements requires a code setting change that therefore needs to be planned and approved by CivicActions Change Control Board before being implemented."
+        }
+       }
+      },
+      "ia-5.1_smt.b": {
+       "uuid": "5ed6fe40-02fb-4379-b868-2dce6e3bf8c1",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "7cf63565-61b4-47a3-8d9a-8bf3a99a610f",
+         "description": "When required to change passwords, Drupal users are required to change their authenticator password by changing at least one character. Enforcement of this control is implemented through the website&#39;s software configuration."
+        }
+       }
+      },
+      "ia-5.1_smt.c": {
+       "uuid": "c100a624-8bff-4be5-b1a3-a4304529c0fb",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "31dae4ef-d0bb-429d-9dfc-2a250782e19d",
+         "description": "AWS built-in features of AWS Identity and Access Management (IAM) and the AWS Console store passwords on AWS systems in a cryptographically-protected format and only support TLS connectivity to the console web site to protect passwords in transit via encryption."
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "5a5e66e3-8875-45a4-b295-92c2290f60e3",
+         "description": "All Drupal passwords are encrypted in storage, using the SHA-512 hashing algorithm with a salt. The hash function is performed repeatedly to further obfuscate the password via key stretching. In transmission, passwords are encrypted using SSL via HTTPS."
+        }
+       }
+      },
+      "ia-5.1_smt.d": {
+       "uuid": "580d1efb-6063-4467-9eda-a6c5228492c0",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "9f71b0ab-6549-48fc-a251-4e82716daa38",
+         "description": "The website requires all submitted passwords to comply with lifetime rules, as described above in IA-5(g)."
+        }
+       }
+      },
+      "ia-5.1_smt.e": {
+       "uuid": "8ff3ce83-e6cf-497a-a44e-4ea871d9796d",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "53afbf46-38c5-44d2-897f-c4ed9d606d20",
+         "description": "Password reuse is limited through software configuration."
+        }
+       }
+      },
+      "ia-5.1_smt.f": {
+       "uuid": "0bba3825-357a-4d6e-87e5-cae8de2135f3",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "87eb8f8b-cd6c-4941-b147-4952182f9d37",
+         "description": "AWS built-in features of AWS Identity and Access Management (IAM) provides the capability to require new password to be entered upon login. The customer organization, at its discretion, configures IAM to enforce that requirement."
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "dd3c934a-81b4-4536-8566-d9f32ebb5df0",
+         "description": "When website users request a password reset, the website sends a temporary login link to the email address associated with their user account. After a user logs in via the temporary login link, the website requires the user to enter a new password before proceeding further."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "19ff6ca1-be68-44f8-853e-6cd40933935c",
+     "control-id": "ia-5.11",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5.11_smt": {
+       "uuid": "c420986a-92d2-4f99-814b-3ea0419bead7",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "568302aa-92ee-456d-b201-e230b8794374",
+         "description": "AWS built-in features of AWS Identity and Access Management (IAM) provides the capability for Hardware MFA using Gemalto SafeNet IDProve 100 and 700 OTP Tokens which are compliant to OATH open standard (time based - 6 digits) Expected battery life is 3-5 years or approximately 15,000 - 20,000 clicks. These products are handheld devices that provide strong authentication by generating a unique password that is valid for only one attempt and for 30 seconds.\n\nIt is the customer organization&#39;s responsibility to implement Hardware MFA. Refer to http://aws.amazon.com/iam/details/mfa/ and http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "7fd9c766-a9a3-422e-bada-980d847ee720",
+     "control-id": "ia-6",
+     "parameter-settings": {},
+     "statements": {
+      "ia-6_smt": {
+       "uuid": "ff3d8386-ea69-42d7-bc9a-2fd8b682f9c4",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "179ac191-7879-48f8-b10b-fdfefc8d2f87",
+         "description": "In this architecture, All Amazon EC2 instances (bastion host, web/proxy servers, application servers) employ SSH for interactive login, and when a key passphrase is prompted for, the SSH prompting mechanism obscures the feedback by default.\n\nAWS built-in features obscure keystroke feedback for password input during AWS console login with AWS Identity and Access Management (IAM) user credentials, and when the CloudFormation console prompts for an initial database password during Quick Start template deployment."
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "9db0d8a0-2793-4f45-94e6-49f58219ade0",
+         "description": "Feedback of authentication information is obscured during the authentication process into the Drupal application by displaying \u201cdots\u201d in the place of a password, as is standard for web-based applications. In transmission, passwords are encrypted using SSL via HTTPS."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "56d1721b-64f0-4fc5-8df7-63391068dfdb",
+     "control-id": "ia-7",
+     "parameter-settings": {},
+     "statements": {
+      "ia-7_smt": {
+       "uuid": "b7bf1d5a-2756-462a-a3a1-9f1b199ba213",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "f8a2ae82-c0c7-4764-9148-60cb96062ab6",
+         "description": "AWS built-in features of AWS Identity and Access Management (IAM) authentication employs cryptographic modules that meet requirements as specified and assessed in the AWS FedRAMP authorization package."
+        },
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "4a7ff8c3-7f8f-414f-9b29-8e2470735fab",
+         "description": "All Drupal passwords are encrypted in storage, using the SHA-512 hashing algorithm with a salt. SHA-512 is an approved security function under FIPS PUB 140-2. The hash function is performed repeatedly to further obfuscate the password via key stretching. In transmission, passwords are encrypted using SSL via HTTPS."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "832cc04b-fcea-475a-bf73-06ff4105dfc4",
+     "control-id": "ia-8",
+     "parameter-settings": {},
+     "statements": {
+      "ia-8_smt": {
+       "uuid": "a5a09817-b2c5-4868-a825-676105fe1bc7",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "cb4925a4-dd4b-488c-91b8-2405c8caa7c2",
+         "description": "AWS built-in features of AWS Identity and Access Management (IAM) provide the capability for uniquely identifying and authenticating users and processes acting on their behalf to both organizational and non-organizational users, providing privileges based on the credentials, group memberships, and access policies assigned to them.\n\nThe customer organization at its discretion provides user accounts and privileges to both organizational non-organizational users in addition to organizational users."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "806b8aed-b049-43ca-a3d5-0e49efbdbcc6",
+     "control-id": "ir-1",
+     "parameter-settings": {
+      "ir-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "ir-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ir-1_smt": {
+       "uuid": "35ed09a4-d1e7-4b53-8e9b-244dd7d11eeb",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "f0e63193-6fe3-4aee-829c-282b59cc220d",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud Service Provider dated 1 May 2013."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "f964f03b-c850-4858-bc4f-6dd531add0eb",
+     "control-id": "ir-2",
+     "parameter-settings": {
+      "ir-2_prm_2": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ir-2_smt": {
+       "uuid": "4765ca2a-3ffd-4594-a664-5ab2bd68c6ac",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "11e0c762-f029-48b5-96b8-4b1c8e1e0ce0",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident response training."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "a26889e9-c491-4d40-860e-917ca9d4615e",
+     "control-id": "ir-4",
+     "parameter-settings": {},
+     "statements": {
+      "ir-4_smt": {
+       "uuid": "f391d6ba-c129-4edd-b210-07978bf85ac6",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "c82e96b7-ef75-487a-9606-47507881af08",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident handling."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "62c0361e-2e4f-4ae4-80bd-61d38cc1b0d5",
+     "control-id": "ir-5",
+     "parameter-settings": {},
+     "statements": {
+      "ir-5_smt": {
+       "uuid": "02f81cae-a9d9-4193-8ff5-c2dadea9fc6c",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "3f45ec27-3920-41d7-b6d8-3cbe1b996262",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident monitoring."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "4208fbb8-633a-4051-b2b6-5bff4fd6cc0c",
+     "control-id": "ir-6",
+     "parameter-settings": {
+      "ir-6_prm_1": {
+       "values": [
+        "US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)"
+       ]
+      }
+     },
+     "statements": {
+      "ir-6_smt": {
+       "uuid": "0db413ac-fbb6-466b-b66a-ca3bd151b494",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "dd2f6df1-9275-4416-9d3d-6650f68de7b8",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident reporting."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "b141025c-6f37-4eaa-902b-efb3266fc8ce",
+     "control-id": "ir-7",
+     "parameter-settings": {},
+     "statements": {
+      "ir-7_smt": {
+       "uuid": "8f56823d-f69d-4175-9257-21b7b55d6ea9",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "7c24deb5-a4c8-4aaa-a6ad-14d3809f6780",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident resonse assistance."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "ae66f64a-3d07-459f-a67f-03d87787c3ca",
+     "control-id": "ir-8",
+     "parameter-settings": {
+      "ir-8_prm_2": {
+       "values": [
+        "see additional FedRAMP Requirements and Guidance"
+       ]
+      },
+      "ir-8_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      },
+      "ir-8_prm_4": {
+       "values": [
+        "see additional FedRAMP Requirements and Guidance"
+       ]
+      }
+     },
+     "statements": {
+      "ir-8_smt": {
+       "uuid": "9be980a6-72ed-444f-be4a-ee3c731c138e",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "4af9a205-ec40-4382-925e-99e3f6cd08c2",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: incident response plan."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "3b9ec250-c546-47d9-aaa7-153f50693aa8",
+     "control-id": "ma-1",
+     "parameter-settings": {
+      "ma-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "ma-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ma-1_smt": {
+       "uuid": "fc7bdd27-950b-46db-9904-6102f6cb7d20",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "14b90c90-8e49-4dd2-8ef4-b4d8f6ec6b5f",
+         "description": "This System Maintenance control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "93b8288b-25fc-4191-9129-7b797a7d9b95",
+     "control-id": "ma-2",
+     "parameter-settings": {},
+     "statements": {
+      "ma-2_smt": {
+       "uuid": "eb985c4b-626c-4e23-935a-190399a4c78f",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "9622fda6-3696-42b2-962b-f029f448bc51",
+         "description": "This System Maintenance control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "71d0583d-3251-496e-80bf-9af0d40eb4ff",
+     "control-id": "ma-4",
+     "parameter-settings": {},
+     "statements": {
+      "ma-4_smt": {
+       "uuid": "2d2bd368-2987-4c8f-9dda-5fb4d31dd2da",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "586cbbc2-1d74-4462-ba3b-9da41de4635a",
+         "description": "This System Maintenance control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "746f2532-503f-4514-bc8e-39a5c0e3c051",
+     "control-id": "ma-5",
+     "parameter-settings": {},
+     "statements": {
+      "ma-5_smt": {
+       "uuid": "38b65572-c57b-451b-b70e-d93f09e04c95",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "372ca0e7-9182-49ce-929a-037fbdc54927",
+         "description": "This System Maintenance control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "716ccc52-1166-4503-8c0c-4d4e3c3d8ef1",
+     "control-id": "mp-1",
+     "parameter-settings": {
+      "mp-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "mp-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "mp-1_smt": {
+       "uuid": "4fb29a9c-28eb-463e-8b73-dff9d816bf05",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "509a1e6f-c8bd-404a-8ca4-d9c4fd35f381",
+         "description": "This Media Protection control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "97a49521-f773-45d7-ab07-718babf373f4",
+     "control-id": "mp-2",
+     "parameter-settings": {},
+     "statements": {
+      "mp-2_smt": {
+       "uuid": "b676a27e-5644-4b20-9e1e-0f5cfaf5f0a4",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "d114b709-b1a5-4509-8c7d-58b8a3a61454",
+         "description": "This Media Protection control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "7a2fe6ec-2b38-4341-8e73-005ba9693646",
+     "control-id": "mp-6",
+     "parameter-settings": {},
+     "statements": {
+      "mp-6_smt": {
+       "uuid": "ec87886d-0220-4960-a4a1-93f3a2c7fdb5",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "ecd18966-2e16-4d0d-a0b2-244b4005bcb4",
+         "description": "This Media Protection control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "668444ed-0ce5-49a6-ad1d-cfe4b286e74d",
+     "control-id": "mp-7",
+     "parameter-settings": {},
+     "statements": {
+      "mp-7_smt": {
+       "uuid": "1e78ec48-0aab-4866-a559-3e42d341f918",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "c0968c5d-9472-4c59-adff-ac95a60d0e34",
+         "description": "This Media Protection control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5cab1fbd-9cee-41ce-97e0-032eb7867908",
+     "control-id": "pe-1",
+     "parameter-settings": {
+      "pe-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "pe-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "pe-1_smt": {
+       "uuid": "6a35f42c-b94e-47c8-96f2-65a5a7c29283",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "d5dc3f44-d5c2-41ba-a895-9ce4ace44fb8",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "02ae3ed6-2daa-4432-926f-ffa02ab031c7",
+     "control-id": "pe-12",
+     "parameter-settings": {},
+     "statements": {
+      "pe-12_smt": {
+       "uuid": "eb598c7d-6b85-468e-be17-e9fb1ee6aed2",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "17949e51-d39e-4a36-8a73-4eb2d940fb2f",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5309b8d2-9e3f-4421-874b-4f96378a53fe",
+     "control-id": "pe-13",
+     "parameter-settings": {},
+     "statements": {
+      "pe-13_smt": {
+       "uuid": "35f8fcf3-6f98-4698-bfbe-2fd8805106b5",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "0d546c4c-0605-4114-899d-5fc09a37cf74",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "460f16f7-6bbc-460b-a296-ffb4422b2a41",
+     "control-id": "pe-14",
+     "parameter-settings": {
+      "pe-14_prm_1": {
+       "values": [
+        "consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments"
+       ]
+      },
+      "pe-14_prm_2": {
+       "values": [
+        "continuously"
+       ]
+      }
+     },
+     "statements": {
+      "pe-14_smt": {
+       "uuid": "23e8d8c4-9b89-4079-b207-b5b5e754f2b5",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "2abd6aa6-d5cf-4616-bbdb-1a5e7863180f",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "51d7bf2c-5e7e-4cae-aed8-812a8cb2c0f2",
+     "control-id": "pe-15",
+     "parameter-settings": {},
+     "statements": {
+      "pe-15_smt": {
+       "uuid": "923a8f78-ca5d-480f-806a-31599b48632b",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "79b57fc2-7e67-4b91-85b5-f29d0d56ec93",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "8d1efd3f-24da-4d97-a892-ff1a3eca4e6f",
+     "control-id": "pe-16",
+     "parameter-settings": {
+      "pe-16_prm_1": {
+       "values": [
+        "all information system components"
+       ]
+      }
+     },
+     "statements": {
+      "pe-16_smt": {
+       "uuid": "d2069736-203c-44e8-8a55-8e8ad3c3df7e",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "55ce6546-e93a-46de-a155-e43609c71a0d",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/&#34;"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "d8fb9f16-5121-407b-aea8-78c80d2b9f0b",
+     "control-id": "pe-2",
+     "parameter-settings": {
+      "pe-2_prm_1": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "pe-2_smt": {
+       "uuid": "19878b03-c05f-4ead-b14b-01049ae1a167",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "c5928e50-587e-4622-92c6-5d132b1fa556",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "84b4ddd3-70d5-490a-a185-9e46fe40a176",
+     "control-id": "pe-3",
+     "parameter-settings": {
+      "pe-3_prm_2": {
+       "values": [
+        "CSP defined physical access control systems/devices AND guards"
+       ]
+      },
+      "pe-3_prm_3": {
+       "values": [
+        "CSP defined physical access control systems/devices"
+       ]
+      },
+      "pe-3_prm_6": {
+       "values": [
+        "in all circumstances within restricted access area where the information system resides"
+       ]
+      },
+      "pe-3_prm_8": {
+       "values": [
+        "at least annually"
+       ]
+      },
+      "pe-3_prm_9": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "pe-3_smt": {
+       "uuid": "50574adc-9a39-4c75-b0d6-f186aad8a029",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "f2c7dc5f-29c4-4865-90d1-f0b238849e72",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "70c6aa2c-e47d-4310-8e2e-64637884f5c7",
+     "control-id": "pe-6",
+     "parameter-settings": {
+      "pe-6_prm_1": {
+       "values": [
+        "at least monthly"
+       ]
+      }
+     },
+     "statements": {
+      "pe-6_smt": {
+       "uuid": "2fc05c04-2e6f-4e96-b440-f69f52c845f1",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "60e5ced1-b6a4-4edc-8c21-dede8f5ba8bc",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "4b0bfa83-7d76-427f-a2d0-d566e0130c04",
+     "control-id": "pe-8",
+     "parameter-settings": {
+      "pe-8_prm_1": {
+       "values": [
+        "for a minimum of one (1) year"
+       ]
+      },
+      "pe-8_prm_2": {
+       "values": [
+        "at least monthly"
+       ]
+      }
+     },
+     "statements": {
+      "pe-8_smt": {
+       "uuid": "e1b5df84-a035-4986-a8e6-2bbec70ab991",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "d822a15c-969f-4b1d-816b-944a0052fe7a",
+         "description": "This Physical Environment control associated with hardware components within AWS is generally either partially or fully inherited from the AWS physical infrastructure, while the customer organization is responsible for any part of the control that is applicable to customer-controlled equipment and facilities, and the customer&#39;s configurable portion of the AWS logical infrastructure, including the Operating systems on Amazon EC2 instances and the customer&#39;s applications.\n\nFor the U.S. East, U.S. West, and GovCloud regions, this control is inherited from pre-existing Agency Authority to Operate (ATO) or JAB provisional Authority to Operate under the Federal Risk and Authorization Management Program (FedRAMP).\n\nRefer to the AWS FedRAMP SSP artifacts, including the Control Implementation Summary and Customer Responsibility Matrix, available from the AWS Compliance Team. http://aws.amazon.com/compliance/fedramp/"
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "c3cbe8d1-cda6-48f8-8ccf-b5b29bab688d",
+     "control-id": "pl-1",
+     "parameter-settings": {
+      "pl-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "pl-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "pl-1_smt": {
+       "uuid": "0af43724-0b93-482c-b96e-6d6e7bea5011",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "96776469-e7db-4e0e-980c-1d185897020b",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud Service Provider dated 1 May 2013."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "02d93147-557c-45d3-906c-22e1c1c20941",
+     "control-id": "pl-2",
+     "parameter-settings": {
+      "pl-2_prm_2": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "pl-2_smt": {
+       "uuid": "bf72fff6-e089-40e1-9dbc-3d78e47ba54e",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "fe01f9f9-5d9e-4033-82e8-6440cd9e7f7a",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: AWS system security plan."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "0d826bd8-5fde-4cbe-aede-97bda8141d83",
+     "control-id": "ps-1",
+     "parameter-settings": {
+      "ps-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "ps-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ps-1_smt": {
+       "uuid": "2e3d46f6-2150-4881-8023-b4504658a995",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "3b18d78c-a55d-4b80-bcb4-6abbd235691c",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud Service Provider dated 1 May 2013."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "e4cc1ac9-9750-4c01-bce3-549f74bb0c5d",
+     "control-id": "ra-1",
+     "parameter-settings": {
+      "ra-1_prm_2": {
+       "values": [
+        "at least every 3 years"
+       ]
+      },
+      "ra-1_prm_3": {
+       "values": [
+        "at least annually"
+       ]
+      }
+     },
+     "statements": {
+      "ra-1_smt": {
+       "uuid": "6648f186-ec76-4eb6-ac7e-1a0d70f783e9",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "b0c15f89-87e1-4677-b149-80c16673c973",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud Service Provider dated 1 May 2013."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "6735eda9-ad16-4e2b-9efc-71b76e5103d4",
+     "control-id": "ra-5",
+     "parameter-settings": {
+      "ra-5_prm_1": {
+       "values": [
+        "monthly operating system/infrastructure; monthly web applications and databases"
+       ]
+      },
+      "ra-5_prm_2": {
+       "values": [
+        "high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery"
+       ]
+      }
+     },
+     "statements": {
+      "ra-5_smt": {
+       "uuid": "78cf574b-7d57-4ee5-b26f-6a2cf4e45156",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "5c392d9c-5f8a-4749-a64a-d7ac067648de",
+         "description": "The system partially inherits this control from the FedRAMP Provisional ATO granted to the AWS Cloud dated 1 May 2013 for the following: vulnerability scanning."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "9e846599-5eaa-466a-b714-de42e1a22bea",
+     "control-id": "sa-12",
+     "parameter-settings": {},
+     "statements": {
+      "sa-12_smt": {
+       "uuid": "1f6b3bae-1da4-44b8-879b-6070a3ee5a5d",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "94d3fdfd-72b3-4b97-80eb-7d774e7f5b92",
+         "description": "In this architecture, initial private/public SSH keys stored in Identity and Access Management (IAM) are supplied to Amazon EC2 instances upon launch, and the public key portion is managed within the AWS Amazon EC2 service. In addition, server-side encryption is used for Amazon S3 storage and Amazon RDS databases, using key management provided by AWS for the storage buckets and Amazon RDS databases."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "0063fa7c-fef7-4b55-8630-5a60b8bfe40d",
+     "control-id": "sa-13",
+     "parameter-settings": {},
+     "statements": {
+      "sa-13_smt": {
+       "uuid": "9f5a79d5-ac85-4973-a3e1-4255747a19e8",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "a67b88d9-7fcf-4d81-b0c4-719c04cc8d57",
+         "description": "In this architecture, encryption mechanisms are employed for data at rest and in transit. For data at rest, AES-256 Server Side encryption is employed for data stored in Amazon S3, and Amazon RDS databases. For data in transit, to protect against exposure of any cleartext data transmitted deliberately (upload/download) or incidentally during interactive systems management operations, Amazon S3 object access can only be conducted over encrypted sessions via TLS; the bastion host, Amazon EC2 instances and associated security groups are configured for encrypted SSH sessions only. For web user access, the Elastic Load Balancing (ELB) employs a TLS endpoint.\n\nAWS built-in features employ TLS for AWS Management Console sessions, AWS API calls, and AWS Command Line Interface connections."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "43da0fc3-b726-4dee-b063-20df72512d69",
+     "control-id": "sa-5",
+     "parameter-settings": {},
+     "statements": {
+      "sa-5_smt.a": {
+       "uuid": "5e5d66b8-55cd-4a1d-b824-dd6f99341c72",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "80fb2890-d6da-4f71-9f2f-2653e8810b27",
+         "description": "In this architecture, documentation of the infrastructure configuration in the form of AWS CloudFormation templates in JSON or YAML format, architecture diagrams, deployment user guide and security controls implementation details is included.\n\nAWS built-in features include online documentation for management of the infrastructure at http://aws.amazon.com/documentation/"
+        }
+       }
+      },
+      "sa-5_smt.b": {
+       "uuid": "390569f4-aa9c-4b17-ae52-4479caa7716c",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "e8b7bd98-0335-405c-a8da-a892b03674c2",
+         "description": "AWS built-in features include online documentation of AWS services at http://aws.amazon.com/documentation/\n\n1. AWS built-in features include online documentation for AWS account users at\n   http://aws.amazon.com/documentation/ such as user Guides, API reference guides, CLI\n   reference guides and developer reference guides to provide information on how to\n   effectively use security functions.\n\n2. AWS built-in features include online documentation for AWS account users within the\n   infrastructure at http://aws.amazon.com/documentation/ such as user Guides, API\n   reference guides, CLI reference guides and developer reference guides to provide\n   information on how to access AWS services and components in a more secure manner.\n\n3. AWS built-in features include online documentation for AWS account users at\n   https://aws.amazon.com/security/security-resources/ that provides information\n   related to security responsibilities of customers using AWS services."
+        }
+       }
+      },
+      "sa-5_smt.d": {
+       "uuid": "b8b60632-ef6f-4a33-905b-1031e8669976",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "59e30861-2ed5-4b78-8c1c-9de1b18dce15",
+         "description": "AWS built-in features include online documentation that is protected by AWS from unauthorized modification or deletion within AWS system."
+        }
+       }
+      },
+      "sa-5_smt.e": {
+       "uuid": "dc4c3aa5-1403-45c8-90e8-7bc6b1163f0a",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "d361dc79-139d-4cc7-bc6a-1b239136a162",
+         "description": "AWS built-in features include online documentation located at http://aws.amazon.com/documentation/ that is publicly available."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "8933b6c4-70f0-431f-8db7-fce698d6992a",
+     "control-id": "sc-5",
+     "parameter-settings": {},
+     "statements": {
+      "sc-5_smt": {
+       "uuid": "57d64ee5-3184-4cf9-b947-22b312f57771",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "515c4a65-8541-4a98-98c1-d996d85c2ccd",
+         "description": "Drupal has a manual ability to block IP addresses in cases where attacks bypass cloud protection. This is managed by CivicActions Operations."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "be8e5c59-7101-4de7-887e-23dd2deb5629",
+     "control-id": "sc-7",
+     "parameter-settings": {},
+     "statements": {
+      "sc-7_smt": {
+       "uuid": "26751d15-2aa6-4040-a15d-9fe7f772fca0",
+       "by-components": {
+        "bba29c21-89bc-4201-9982-633334c2aad2": {
+         "uuid": "87a57ab2-1f6b-40a8-8fc3-82cd0b92063d",
+         "description": "Drupal, when deployed on SELinux in full enforcing mode, minimizes the number of services and computing nodes that are exposed to the Internet. Drupal employs both the AWS platform safeguards and the Drupal Watchdog module in monitoring and recording system events. All other computing nodes used in the system are isolated within AWS."
+        }
+       }
+      },
+      "sc-7_smt.a": {
+       "uuid": "22b0e7fe-9b31-4813-9e05-19a7e12a7911",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "09c026fb-2dc0-41a3-ad33-5d4276cddb31",
+         "description": "In this architecture, network communications to, from, and between VPCs, subnets and Amazon S3 buckets are controlled as follows: AWS Route Tables specify which subnets in each VPC are accessible through gateways and which are isolated/private. AWS Security Groups provide stateful inbound/outbound port/protocol restrictions, Amazon Simple Storage Service (Amazon S3) buckets support access control restrictions based on network source/destination."
+        }
+       }
+      },
+      "sc-7_smt.b": {
+       "uuid": "4955adba-544b-48f8-869c-8c95295c4501",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "42c89274-dc2c-460c-b597-f2e8c807289f",
+         "description": "In this architecture, subnetworks for publicly accessible system components are logically separated from internal private subnetworks via AWS security groups, refined routing tables, and NACLs."
+        }
+       }
+      },
+      "sc-7_smt.c": {
+       "uuid": "3d5a5c65-cd2e-4da6-84e3-430a3f71d998",
+       "by-components": {
+        "241704dd-78be-46cc-8542-51574711e45c": {
+         "uuid": "bedcef06-54fb-49cd-b7a0-56c20d50dfce",
+         "description": "In this architecture, connection to external networks is possible only through Internet Gateways (IGWs) or NAT gateways (in regions where supported by AWS VPC) and are restricted based on ports/protocols via AWS Security groups, and default subnet rules provided by NACLs."
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}
