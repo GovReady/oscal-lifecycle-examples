@@ -1,85 +1,101 @@
 #!/usr/bin/env python3
+
 import json
 import logging
 import os
 from pprint import pprint
 
 
-def load_inspec_profile(path):
-    """Load a component inSpec profile created from a STIG by MITRE Heimdall project"""
+class InSpecMapper():
+    """A class to map a MITRE Heimdall project component InSpec profile to other formats"""
 
-    try:
-        fd = open(path)
-        data = json.loads(fd.read())
-        return data
-    except Exception as err:
-        logging.error(str(err))
-        return {}
+    def __init__(self, profile_path=None):
 
-def is_valid_profile(profile):
-    """Confirm inSpec profile has control block"""
+        # if profile_path is None:
+        #     print('InSpecMapper requires path to InSpec profile file.')
+        #     exit()
+        self.profile_path = profile_path
+        # self.profile_path = 'heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json'
+        # self.converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls.json'
 
-    try:
-        if not profile.get('controls'):
+        # Read a component InSpec profile created from a STIG by MITRE Heimdall project
+        self.profile = self.load_inspec_profile(self.profile_path)
+
+        # Check if component InSpec profile has `control` block, is "valid"
+        if not self.is_valid_profile(self.profile):
+            logging.error("Inspec profile is malformed, could not map controls!")
+            sys.exit(1)
+
+        # We are only interested in the granular `controls`
+        self.controls = self.get_controls(self.profile)
+
+    def load_inspec_profile(self, path):
+        """Load a MITRE Heimdall projectcomponent InSpec profile created from a STIG"""
+
+        try:
+            fd = open(path)
+            data = json.loads(fd.read())
+            return data
+        except Exception as err:
+            logging.error(str(err))
+            return {}
+
+    def is_valid_profile(self, profile):
+        """Confirm InSpec profile has control block"""
+
+        try:
+            if not profile.get('controls'):
+                return False
+
+            return True
+        except Exception as err:
+            logging.error(str(err))
             return False
 
-        return True
-    except Exception as err:
-        logging.error(str(err))
-        return False
+    def get_controls(self, profile):
+        """Get granular STIG controls from InSpec profile"""
 
-def get_controls(profile):
-    """Get granular STIG controls from inSpec profile"""
+        try:
+            return profile.get('controls')
+        except Exception as err:
+            logging.error(str(err))
+            return []
 
-    try:
-        return profile.get('controls')
-    except Exception as err:
-        logging.error(str(err))
-        return []
+    def map_controls_by_tags(self, tag):
+        """Group/collate STIG controls around NIST 800-53 control tags"""
 
-def map_controls_by_tags(controls, tag):
-    """Group/collate STIG controls around NIST 800-53 control tags"""
+        tag_map = {}
 
-    tag_map = {}
+        try:
+            for c in self.controls:
+                t = c.get('tags').get('nist')[0]
+                if not tag_map.get(t): tag_map[t] = []
+                tag_map[t].append(c)
 
-    try:
-        for c in controls:
-            t = c.get('tags').get('nist')[0]
-            if not tag_map.get(t): tag_map[t] = []
-            tag_map[t].append(c)
+            return tag_map
+        except Exception as err:
+            logging.error(str(err))
+            return {}
 
-        return tag_map
-    except Exception as err:
-        logging.error(str(err))
-        return {}
-
-def run():
-
-    # Read a component inSpec profile created from a STIG by MITRE Heimdall project
-    profile_path = 'heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json'
-    profile = load_inspec_profile(profile_path)
-
-    # Check if component inSpec profile has `control` block, is "valid"
-    if not is_valid_profile(profile):
-        logging.error("Inspec profile is malformed, could not map controls!")
-        sys.exit(1)
-
-    # We are only interested in the granular `controls` 
-    controls = get_controls(profile)
-    # Collate the `control` content by NIST 800-53 tags
-    tag_map = map_controls_by_tags(controls, 'nist')
-    return tag_map
 
 if __name__ == '__main__':
-    # Collate a component inSpec profile around NIST controls
+    # Collate a component InSpec profile around NIST controls
+
+    # Instantiate InSpecMapper for a component
+    inspec_cmpt = InSpecMapper('heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json')
+    # Collate the `control` content by NIST 800-53 tags
+    nist_800_53_tag_map = inspec_cmpt.map_controls_by_tags('nist')
 
     # Hardcode output file path
     converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls.json'
-    cmpt = run()
 
-    # dump conversion to file
+    # Dump conversion to file
     with open(converted_path, "w") as outfile: 
-        json.dump(cmpt, outfile, indent=4, sort_keys=True) 
+        json.dump(nist_800_53_tag_map, outfile, indent=4, sort_keys=True) 
 
-    # pprint(cmpt['AC-10'])
-    # pprint(run())
+    print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
+    # For fun, let's see a mapping
+    print("\n")
+    print("Print sample map control AC-10")
+    print("------------------------------\n")
+    pprint(nist_800_53_tag_map['AC-10'])
