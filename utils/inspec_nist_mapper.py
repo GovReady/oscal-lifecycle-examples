@@ -3,6 +3,7 @@
 import json
 import logging
 import os
+import sys
 from pprint import pprint
 
 
@@ -11,23 +12,23 @@ class InSpecMapper():
 
     def __init__(self, profile_path=None):
 
-        # if profile_path is None:
-        #     print('InSpecMapper requires path to InSpec profile file.')
-        #     exit()
-        self.profile_path = profile_path
-        # self.profile_path = 'heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json'
-        # self.converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls.json'
+        try:
+            if profile_path is None:
+                print('InSpecMapper requires path to InSpec profile file.')
+            self.profile_path = profile_path
 
-        # Read a component InSpec profile created from a STIG by MITRE Heimdall project
-        self.profile = self.load_inspec_profile(self.profile_path)
+            # Read a component InSpec profile created from a STIG by MITRE Heimdall project
+            self.profile = self.load_inspec_profile(self.profile_path)
 
-        # Check if component InSpec profile has `control` block, is "valid"
-        if not self.is_valid_profile(self.profile):
-            logging.error("Inspec profile is malformed, could not map controls!")
-            sys.exit(1)
+            # Check if component InSpec profile has `control` block, is "valid"
+            if not self.is_valid_profile(self.profile):
+                logging.error("Inspec profile is malformed, could not map controls!")
+                sys.exit(1)
 
-        # We are only interested in the granular `controls`
-        self.controls = self.get_controls(self.profile)
+            # We are only interested in the granular `controls`
+            self.controls = self.get_controls(self.profile)
+        except Exception as err:
+            logging.error(str(err))
 
     def load_inspec_profile(self, path):
         """Load a MITRE Heimdall projectcomponent InSpec profile created from a STIG"""
@@ -94,8 +95,6 @@ if __name__ == '__main__':
         json.dump(nist_800_53_tag_map, outfile, indent=4, sort_keys=True) 
 
     print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
-    # For fun, let's see a mapping
-    print("\n")
-    print("Print sample map control AC-10")
-    print("------------------------------\n")
-    pprint(nist_800_53_tag_map['AC-10'])
+   
+    # Here is how to see a mapping
+    # pprint(nist_800_53_tag_map['AC-10'])
