@@ -1,0 +1,125 @@
+{
+ "system-security-plan": {
+  "uuid": "5fce41d4-02d1-453a-b869-92dd5c15ef59",
+  "metadata": {
+   "title": "General IT System ATO 6",
+   "last-modified": "2021-01-24 20:50:28.762390+00:00",
+   "version": "None",
+   "oscal-version": "1.0.0rc1"
+  },
+  "import-profile": {
+   "href": "http://localhost:8000/controls/5/profile/oscal/json"
+  },
+  "system-characteristics": {
+   "system-ids": [
+    {
+     "id": "govready-5"
+    }
+   ],
+   "system-name": "General IT System ATO 6",
+   "system-name-short": "<System Short Name>",
+   "description": "<System Description>",
+   "security-sensitivity-level": "<FISMA Level>",
+   "system-information": {
+    "information-types": [
+     {
+      "title": "UNKNOWN information type title",
+      "description": "information type description",
+      "confidentiality-impact": {
+       "base": "information type confidentiality impact"
+      },
+      "integrity-impact": {
+       "base": "information type integrity impact"
+      },
+      "availability-impact": {
+       "base": "information type availability impact"
+      }
+     }
+    ]
+   },
+   "security-impact-level": {
+    "security-objective-confidentiality": "UNKNOWN",
+    "security-objective-integrity": "UNKNOWN",
+    "security-objective-availability": "UNKNOWN"
+   },
+   "status": {
+    "state": "operational"
+   },
+   "authorization-boundary": {
+    "description": "System authorization boundary, TBD"
+   }
+  },
+  "system-implementation": {
+   "users": {},
+   "components": {
+    "2563abc2-8def-43f1-84ca-cdfb990f5668": {
+     "type": "software",
+     "title": "Ubuntu 16.04 LTS",
+     "description": "OS component for Ubuntu",
+     "status": {
+      "state": "operational"
+     }
+    }
+   }
+  },
+  "control-implementation": {
+   "description": "Control implementations",
+   "implemented-requirements": [
+    {
+     "uuid": "9a925238-07c6-47ec-9b6d-cfc8b281e046",
+     "control-id": "ac-10",
+     "parameter-settings": {
+      "ac-10_prm_2": {
+       "values": [
+        "three (3) sessions for privileged access and two (2) sessions for non-privileged access"
+       ]
+      }
+     },
+     "statements": {
+      "ac-10_smt": {
+       "uuid": "c876a68a-a0a9-421e-a926-884f8da4a543",
+       "by-components": {
+        "2563abc2-8def-43f1-84ca-cdfb990f5668": {
+         "uuid": "04647f3f-9c8a-4bbd-93f8-555baa53ee97",
+         "description": "Ubuntu operating system management includes the ability to control the number of users and user sessions that utilize an Ubuntu operating system. Limiting the number of allowed users and sessions per user is helpful in reducing the risks related to DoS attacks.\r\n\r\nThis requirement addresses concurrent sessions for information system accounts and does not address concurrent sessions by single users via multiple system accounts. The maximum number of concurrent sessions should be defined based upon mission needs and the operational environment for each system."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "d8a07c8e-5047-46cf-9e08-306990188c76",
+     "control-id": "ia-5.1",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5.1_smt.a": {
+       "uuid": "5ef8e036-aeb9-43a5-aa37-cc1ed462c22f",
+       "by-components": {
+        "2563abc2-8def-43f1-84ca-cdfb990f5668": {
+         "uuid": "7505861a-4dfb-4de3-8f2c-d0ff8566681a",
+         "description": "Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.\r\n\r\nPassword complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.\\n\\nUse of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.\r\n\r\nPassword complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.\\n\\nUse of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.\r\n\r\nPassword complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.\\n\\nUse of a complex password helps to increase the time and resources required to compromise the password. Password complexity or strength is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.\r\n\r\nPassword complexity is one factor in determining how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.\r\n\r\nSpecial characters are those characters that are not alphanumeric. Examples include: ~ ! @ # $ % ^ *.\\n\\nThe shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised.\r\n\r\nPassword complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks. Password length is one factor of several that helps to determine strength and how long it takes to crack a password. Use of more characters in a password helps to exponentially increase the time and/or resources required to compromise the password."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "09a61fd4-8b57-4f47-8bf9-7d5eff90f0aa",
+     "control-id": "ia-5.2",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5.2_smt": {
+       "uuid": "f958f8ef-1789-4031-9012-6339be20b932",
+       "by-components": {
+        "2563abc2-8def-43f1-84ca-cdfb990f5668": {
+         "uuid": "aa653ee8-601a-49fd-a990-3ca4226a326c",
+         "description": "To assure individual accountability and prevent unauthorized access, organizational users must be individually identified and authenticated.\r\n\r\nA group authenticator is a generic account used by multiple individuals. Use of a group authenticator alone does not uniquely identify individual users. Examples of the group authenticator is the UNIX OS &#34;root&#34; user account, the Windows &#34;Administrator&#34; account, the &#34;sa&#34; account, or a &#34;helpdesk&#34; account.\r\n\r\nFor example, the UNIX and Windows operating systems offer a &#39;switch user&#39; capability allowing users to authenticate with their individual credentials and, when needed, &#39;switch&#39; to the administrator role. This method provides for unique individual authentication prior to using a group authenticator.\r\n\r\nUsers (and any processes acting on behalf of users) need to be uniquely identified and authenticated for all accesses other than those accesses explicitly identified and documented by the organization, which outlines specific user actions that can be performed on the Ubuntu operating system without identification or authentication.\r\n\r\nRequiring individuals to be authenticated with an individual authenticator prior to using a group authenticator allows for traceability of actions, as well as adding an additional level of protection of the actions that can be taken with group account knowledge."
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}
