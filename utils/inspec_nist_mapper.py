@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+# Usage:
+#   # Run from root directory of oscal-lifecycle-examples b/c of hardcoded values
+#   python utils/inspec_nist_mapper.py
+#
+# Authors:
+#   AJ Stein, Greg Elin
+#   2021
+#
+# Notes:
+#   Hardcoded file paths for input and output
+
 import json
 import logging
 import os
@@ -78,23 +89,49 @@ class InSpecMapper():
             logging.error(str(err))
             return {}
 
+    def generate_jsonl_statements(self, tag="nist"):
+        """Returns an array of JSON objects where each object equates to a control (e.g. mapped tag) statement"""
+
+        try:
+            json_l_statements = []
+            tag_map = self.map_controls_by_tags(tag)
+            # for control_id in tag_map.keys():
+            for control_id, stig_rule_list in tag_map.items():
+                # print(control_id[0:50])
+                # print(control_id)
+                combined_stig_rule_desc_list = [stig_rule['desc'].replace("\n"," ") for stig_rule in stig_rule_list]
+                json_l_statements.append(json.dumps(dict(control_id=control_id, text="\n\n".join(combined_stig_rule_desc_list))))
+            return json_l_statements
+                # print(json.dumps(dict(control_id=control_id, text="\n\n".join(combined_stig_rule_desc_list))))
+        except Exception as err:
+            logging.error(str(err))
+            return []
 
 if __name__ == '__main__':
     # Collate a component InSpec profile around NIST controls
 
     # Instantiate InSpecMapper for a component
     inspec_cmpt = InSpecMapper('heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json')
+
     # Collate the `control` content by NIST 800-53 tags
     nist_800_53_tag_map = inspec_cmpt.map_controls_by_tags('nist')
 
-    # Hardcode output file path
+    # Hardcoded output file path
     converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls.json'
 
-    # Dump conversion to file
-    with open(converted_path, "w") as outfile: 
-        json.dump(nist_800_53_tag_map, outfile, indent=4, sort_keys=True) 
-
+    # Dump conversion to JSON collated around nist tags to file
+    with open(converted_path, "w") as outfile:
+        json.dump(nist_800_53_tag_map, outfile, indent=4, sort_keys=True)
     print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
-   
+
+    # Hardcoded output file path
+    converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls-govready-json-l.txt'
+    # Dump conversion to json-l format that GovReady uses in a oscalizing pipeline to a file
+    with open(converted_path, "w") as outfile:
+        # outfile.write(line + '\n' for line in "\nkinspec_cmpt.generate_jsonl_statements('nist'))
+        for item in inspec_cmpt.generate_jsonl_statements('nist'):
+            outfile.write(item+"\n")
+    print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
+
     # Here is how to see a mapping
     # pprint(nist_800_53_tag_map['AC-10'])
