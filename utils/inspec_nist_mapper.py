@@ -16,6 +16,7 @@ import logging
 import os
 import sys
 from pprint import pprint
+import datetime
 
 
 class InSpecMapper():
@@ -38,6 +39,11 @@ class InSpecMapper():
 
             # We are only interested in the granular `controls`
             self.controls = self.get_controls(self.profile)
+
+            # TODO: Get components name
+            # Set components name
+            # self.cmpt_name = ?????????
+
         except Exception as err:
             logging.error(str(err))
 
@@ -95,14 +101,55 @@ class InSpecMapper():
         try:
             json_l_statements = []
             tag_map = self.map_controls_by_tags(tag)
-            # for control_id in tag_map.keys():
+            # TODO: sort by key!
             for control_id, stig_rule_list in tag_map.items():
-                # print(control_id[0:50])
-                # print(control_id)
                 combined_stig_rule_desc_list = [stig_rule['desc'].replace("\n"," ") for stig_rule in stig_rule_list]
                 json_l_statements.append(json.dumps(dict(control_id=control_id, text="\n\n".join(combined_stig_rule_desc_list))))
             return json_l_statements
-                # print(json.dumps(dict(control_id=control_id, text="\n\n".join(combined_stig_rule_desc_list))))
+        except Exception as err:
+            logging.error(str(err))
+            return []
+
+    def generate_combined_statements(self, cmpt_name="My Component", tag="nist"):
+        """Returns JSON object in GovReady "combined" format that can be "oscalized" into a OSCAL component model"""
+
+        # Set metadata
+        # Partially hardcoded for the moment...
+        catalog = "NIST_SP-800-53_rev4"
+        source = "Heimdall InSPec Profile from STIG"
+        remarks = "Upstream source content is Heimdall InSpec Profile for component using oscal-lifecycle-examples/utils/inspect_nist_mapper.py"
+        created = datetime.datetime.now().isoformat()
+        command = "inspect_nist_mapper.py"
+
+        # Create combined object
+        combined = {
+            "components": {
+                cmpt_name: {
+                    catalog: {}
+                }
+            },
+            "metadata": [
+                {
+                    "source": source,
+                    "catalog": catalog,
+                    "remarks": remarks,
+                    "created": created,
+                    "command": command
+                }
+            ]
+        }
+
+        # Add the statements to components
+        components = {}
+
+        try:
+            tag_map = self.map_controls_by_tags(tag)
+            # TODO: sort by key!
+            for control_id, stig_rule_list in tag_map.items():
+                # TODO: Add each rule as its own statement in the combined file.
+                combined_stig_rule_desc_list = [stig_rule['desc'].replace("\n"," ") for stig_rule in stig_rule_list]
+                combined['components'][cmpt_name][catalog][control_id] = [dict(text="\n\n".join(combined_stig_rule_desc_list), source=source)]
+            return combined
         except Exception as err:
             logging.error(str(err))
             return []
@@ -112,6 +159,7 @@ if __name__ == '__main__':
 
     # Instantiate InSpecMapper for a component
     inspec_cmpt = InSpecMapper('heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json')
+    inspect_cmpt_name = "Ubuntu 16.04 LTS"
 
     # Collate the `control` content by NIST 800-53 tags
     nist_800_53_tag_map = inspec_cmpt.map_controls_by_tags('nist')
@@ -132,6 +180,17 @@ if __name__ == '__main__':
         for item in inspec_cmpt.generate_jsonl_statements('nist'):
             outfile.write(item+"\n")
     print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
+
+    # Convert to GovReady combined file format, precursor to oscalization
+    nist_800_53_tag_map = inspec_cmpt.generate_combined_statements(inspect_cmpt_name, 'nist')
+    # Hardcoded output file path
+    converted_path = 'conversions/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile-to-800-53-controls-govready-combined.json'
+    # Dump conversion to json-l format that GovReady uses in a oscalizing pipeline to a file
+    with open(converted_path, "w") as outfile:
+        json.dump(nist_800_53_tag_map, outfile, indent=4, sort_keys=True)
+    print("converted "+inspec_cmpt.profile_path+" to "+converted_path)
+
+
 
     # Here is how to see a mapping
     # pprint(nist_800_53_tag_map['AC-10'])

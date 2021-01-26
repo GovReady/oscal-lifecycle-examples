@@ -1,0 +1,687 @@
+{
+ "system-security-plan": {
+  "uuid": "dba7028e-9e77-416c-856f-38de6ad6cb40",
+  "metadata": {
+   "title": "Single Ubuntu System",
+   "last-modified": "2021-01-26 11:02:02.391915+00:00",
+   "version": "None",
+   "oscal-version": "1.0.0rc1"
+  },
+  "import-profile": {
+   "href": "http://localhost:8000/controls/6/profile/oscal/json"
+  },
+  "system-characteristics": {
+   "system-ids": [
+    {
+     "id": "govready-6"
+    }
+   ],
+   "system-name": "Single Ubuntu System",
+   "system-name-short": "SUS",
+   "description": "Simple Ubuntu System is a very simple system consisting of a single Ubuntu server\\.",
+   "security-sensitivity-level": "<FISMA Level>",
+   "system-information": {
+    "information-types": [
+     {
+      "title": "UNKNOWN information type title",
+      "description": "information type description",
+      "confidentiality-impact": {
+       "base": "information type confidentiality impact"
+      },
+      "integrity-impact": {
+       "base": "information type integrity impact"
+      },
+      "availability-impact": {
+       "base": "information type availability impact"
+      }
+     }
+    ]
+   },
+   "security-impact-level": {
+    "security-objective-confidentiality": "UNKNOWN",
+    "security-objective-integrity": "UNKNOWN",
+    "security-objective-availability": "UNKNOWN"
+   },
+   "status": {
+    "state": "operational"
+   },
+   "authorization-boundary": {
+    "description": "System authorization boundary, TBD"
+   }
+  },
+  "system-implementation": {
+   "users": {},
+   "components": {
+    "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+     "type": "software",
+     "title": "Ubuntu 16.04 LTS",
+     "description": "Ubuntu 16.04 LTS",
+     "status": {
+      "state": "operational"
+     }
+    }
+   }
+  },
+  "control-implementation": {
+   "description": "Control implementations",
+   "implemented-requirements": [
+    {
+     "uuid": "e6aa2aeb-8caa-4084-8890-6eee6c25acca",
+     "control-id": "ac-10",
+     "parameter-settings": {
+      "ac-10_prm_2": {
+       "values": [
+        "three (3) sessions for privileged access and two (2) sessions for non-privileged access"
+       ]
+      }
+     },
+     "statements": {
+      "ac-10_smt": {
+       "uuid": "1baa21e6-b1b0-45f9-b8c1-c6dc54a70d28",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "b056f16f-d2e9-4330-a2d2-36229a3d636a",
+         "description": "Ubuntu operating system management includes the ability to control the number of users and user sessions that utilize an Ubuntu operating system. Limiting the number of allowed users and sessions per user is helpful in reducing the risks related to DoS attacks.      This requirement addresses concurrent sessions for information system accounts and does not address concurrent sessions by single users via multiple system accounts. The maximum number of concurrent sessions should be defined based upon mission needs and the operational environment for each system."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "947eed5e-867a-416a-bc30-5b161ae0bd6f",
+     "control-id": "ac-17.1",
+     "parameter-settings": {},
+     "statements": {
+      "ac-17.1_smt": {
+       "uuid": "77a9bcb0-7c76-460a-8b24-6e7dec7ee5b6",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "04d613b3-7421-4dbd-baac-6cc20db5ad04",
+         "description": "Uncomplicated Firewall provides a easy and effective way to block/limit remote access to the system, via ports, services and protocols.      Remote access services, such as those providing remote access to network devices and information systems, which lack automated control capabilities, increase risk and make remote user access management difficult at best.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      Ubuntu operating system functionality (e.g., RDP) must be capable of taking enforcement action if the audit reveals unauthorized activity. Automated control of remote access sessions allows organizations to ensure ongoing compliance with remote access policies by enforcing connection rules of remote access applications on a variety of information system components (e.g., servers, workstations, notebook computers, smartphones, and tablets).\n\nRemote access services, such as those providing remote access to network devices and information systems, which lack automated monitoring capabilities, increase risk and make remote user access management difficult at best.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      Automated monitoring of remote access sessions allows organizations to detect cyber attacks and also ensure ongoing compliance with remote access policies by auditing connection activities of remote access capabilities, such as Remote Desktop Protocol (RDP), on a variety of information system components (e.g., servers, workstations, notebook computers, smartphones, and tablets)."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "791fa84c-f02e-49cf-9949-1294a06a4446",
+     "control-id": "ac-17.2",
+     "parameter-settings": {},
+     "statements": {
+      "ac-17.2_smt": {
+       "uuid": "4d994d81-7800-408e-9ac5-b3140f3c2ef0",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "8ab36ff9-bc28-483b-a980-59bcc6767ba7",
+         "description": "Without confidentiality protection mechanisms, unauthorized individuals may gain access to sensitive information via a remote access session.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      Encryption provides a means to secure the remote connection to prevent unauthorized access to the data traversing the remote access connection (e.g., RDP), thereby providing a degree of confidentiality. The encryption strength of a mechanism is selected based on the security categorization of the information.\n\nWithout cryptographic integrity protections, information can be altered by unauthorized users without detection.      Remote access (e.g., RDP) is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      Cryptographic mechanisms used for protecting the integrity of information include, for example, signed hash functions using asymmetric cryptography enabling distribution of the public key to verify the hash information while maintaining the confidentiality of the secret key used to generate the hash."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "d681a2ab-0e31-4e35-99c4-41a373cd91b8",
+     "control-id": "ac-18.1",
+     "parameter-settings": {},
+     "statements": {
+      "ac-18.1_smt": {
+       "uuid": "3de0cb4d-981e-4b82-adfc-8b136d67264b",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "52dabbec-d2d9-4cfc-86ca-54df901bc592",
+         "description": "Without protection of communications with wireless peripherals, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read, altered, or used to compromise the Ubuntu operating system.      This requirement applies to wireless peripheral technologies (e.g., wireless mice, keyboards, displays, etc.) used with an Ubuntu operating system. Wireless peripherals (e.g., Wi-Fi/Bluetooth/IR Keyboards, Mice, and Pointing Devices and Near Field Communications [NFC]) present a unique challenge by creating an open, unsecured port on a computer. Wireless peripherals must meet DoD requirements for wireless data transmission and be approved for use by the AO. Even though some wireless peripherals, such as mice and pointing devices, do not ordinarily carry information that need to be protected, modification of communications with these wireless peripherals may be used to compromise the Ubuntu operating system. Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.      Protecting the confidentiality and integrity of communications with wireless peripherals can be accomplished by physical means (e.g., employing physical barriers to wireless radio frequencies) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa. If the wireless peripheral is only passing telemetry data, encryption of the data may not be required."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "da000fe9-4104-4780-b6fe-8b779fa6691d",
+     "control-id": "ac-2.2",
+     "parameter-settings": {},
+     "statements": {
+      "ac-2.2_smt": {
+       "uuid": "e8aed5f2-ee77-4e3f-ba26-e3c169b42943",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "f74718ff-a2e3-4d63-bf4b-20fc630a1b02",
+         "description": "Emergency accounts are privileged accounts that are established in response to crisis situations where the need for rapid account activation is required. Therefore, emergency account activation may bypass normal account authorization processes. If these accounts are automatically disabled, system maintenance during emergencies may not be possible, thus adversely affecting system availability.      Emergency accounts are different from infrequently used accounts (i.e., local logon accounts used by the organization&#39;s system administrators when network or normal logon/access is not available). Infrequently used accounts are not subject to automatic termination dates. Emergency accounts are accounts created in response to crisis situations, usually for use by maintenance personnel. The automatic expiration or disabling time period may be extended as needed until the crisis is resolved; however, it must not be extended indefinitely. A permanent account should be established for privileged users who need long-term maintenance accounts.      To address access requirements, many Ubuntu operating systems can be integrated with enterprise-level authentication/access mechanisms that meet or exceed access control policy requirements.\n\nIf temporary user accounts remain active when no longer needed or for an excessive period, these accounts may be used to gain unauthorized access. To mitigate this risk, automated termination of all temporary accounts must be set upon account creation.      Temporary accounts are established as part of normal account activation procedures when there is a need for short-term accounts without the demand for immediacy in account activation.      If temporary accounts are used, the Ubuntu operating system must be configured to automatically terminate these types of accounts after a DoD-defined time period of 72 hours.      To address access requirements, many Ubuntu operating systems may be integrated with enterprise-level authentication/access mechanisms that meet or exceed access control policy requirements."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "608a0af1-4e97-4e02-815a-a7c11a04621f",
+     "control-id": "ac-3",
+     "parameter-settings": {},
+     "statements": {
+      "ac-3_smt": {
+       "uuid": "555980d0-76bb-494b-86a3-7165da5856a7",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "5754c382-c145-40f8-80ce-7fa90c09e918",
+         "description": "To mitigate the risk of unauthorized access to sensitive information by entities that have been issued certificates by DoD-approved PKIs, all DoD systems (e.g., web servers and web portals) must be properly configured to incorporate access control methods that do not rely solely on the possession of a certificate for access. Successful authentication must not automatically give an entity access to an asset or security boundary. Authorization procedures and controls must be implemented to ensure each authenticated entity also has a validated and current authorization. Authorization is the process of determining whether an entity, once authenticated, is permitted to access a specific asset. Information systems use access control policies and enforcement mechanisms to implement this requirement.      Access control policies include: identity-based policies, role-based policies, and attribute-based policies. Access enforcement mechanisms include: access control lists, access control matrices, and cryptography. These policies and mechanisms must be employed by the application to control access between users (or processes acting on behalf of users) and objects (e.g., devices, files, records, processes, programs, and domains) in the information system.\n\nTo mitigate the risk of unauthorized access to sensitive information by entities that have been issued certificates by DoD-approved PKIs, all DoD systems (e.g., web servers and web portals) must be properly configured to incorporate access control methods that do not rely solely on the possession of a certificate for access. Successful authentication must not automatically give an entity access to an asset or security boundary. Authorization procedures and controls must be implemented to ensure each authenticated entity also has a validated and current authorization. Authorization is the process of determining whether an entity, once authenticated, is permitted to access a specific asset. Information systems use access control policies and enforcement mechanisms to implement this requirement.      Access control policies include: identity-based policies, role-based policies, and attribute-based policies. Access enforcement mechanisms include: access control lists, access control matrices, and cryptography. These policies and mechanisms must be employed by the application to control access between users (or processes acting on behalf of users) and objects (e.g., devices, files, records, processes, programs, and domains) in the information system."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "becd8f23-95bd-43a6-9b55-2da432b849d5",
+     "control-id": "ac-3.4",
+     "parameter-settings": {},
+     "statements": {
+      "ac-3.4_smt": {
+       "uuid": "4ecc588b-cbc1-4818-a213-a1bc139af16a",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "d304a196-de8c-44a5-92b4-38317f24096a",
+         "description": "Discretionary Access Control (DAC) is based on the notion that individual users are &#34;owners&#34; of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.      When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.\n\nUnowned files and directories may be unintentionally inherited if a user is assigned the same User Identifier &#34;UID&#34; as the UID of the un-owned files.\n\nFiles without a valid group owner may be unintentionally inherited if a group is assigned the same Group Identifier (GID) as the GID of the files without a valid group owner."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "d9672f78-0ff8-4e44-8ebd-98a7216db2bc",
+     "control-id": "ac-6.8",
+     "parameter-settings": {},
+     "statements": {
+      "ac-6.8_smt": {
+       "uuid": "c3453e8e-6ad9-4275-8808-3fb6a53e31a6",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "1f2e42f9-011a-438e-bec5-ec28b2d8f6e5",
+         "description": "Misuse of privileged functions, either intentionally or unintentionally by authorized users, or by unauthorized external entities that have compromised information system accounts, is a serious and ongoing concern and can have significant adverse impacts on organizations. Auditing the use of privileged functions is one way to detect such misuse and identify the risk from insider threats and the advanced persistent threat."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "6e947dba-15de-438d-bc99-2d6f0d67804e",
+     "control-id": "au-3",
+     "parameter-settings": {},
+     "statements": {
+      "au-3_smt": {
+       "uuid": "d1bbb42a-d376-4832-80e4-ef6a6e61925f",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "a252cf1b-3cc5-4134-9ca6-9d307f2aac3e",
+         "description": "Without establishing what type of events occurred, the source of events, where events occurred, and the outcome of events, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.      Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.      Associating event types with detected events in the Ubuntu operating system audit logs provides a means of investigating an attack, recognizing resource utilization or capacity thresholds, or identifying an improperly configured Ubuntu operating system.\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout establishing what type of events occurred, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.      Audit record content that may be necessary to satisfy this requirement includes, for example, time stamps, source and destination addresses, user/process identifiers, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.      Associating event types with detected events in the Ubuntu operating system audit logs provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured Ubuntu operating system.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged password commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged ssh commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged ssh commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout the capability to generate audit records, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).      The list of audited events is the set of events for which audits are to be generated. This set of events is typically a subset of the list of all events for which the system is capable of generating audit records.      DoD has defined the list of events for which the Ubuntu operating system will provide an audit record generation capability as the following:      1) Successful and unsuccessful attempts to access, modify, or delete privileges, security objects, security levels, or categories of information (e.g., classification levels);      2) Access actions, such as successful and unsuccessful logon attempts, privileged activities or other system-level access, starting and ending time for user access to the system, concurrent logons from different workstations, successful and unsuccessful accesses to objects, all program initiations, and all direct access to the information system;      3) All account creations, modifications, disabling, and terminations; and      4) All kernel module load, unload, and restart actions.\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nReconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nAt a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter).\n\nWithout generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.      Audit records can be generated from various components within the information system (e.g., module or policy filter)."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "6defe04c-608c-4cc2-b3aa-ce7301289cc0",
+     "control-id": "au-3.1",
+     "parameter-settings": {},
+     "statements": {
+      "au-3.1_smt": {
+       "uuid": "14a93c71-c86a-450c-b8cb-14d6378a8613",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "8273bc27-aa1e-4922-84df-7b9bab60b5f1",
+         "description": "Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.      At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "19ba3395-c30c-41db-92d0-186e9d6716a5",
+     "control-id": "au-4",
+     "parameter-settings": {},
+     "statements": {
+      "au-4_smt": {
+       "uuid": "7f6dabf0-0d14-4cd4-bf36-de63eaf4d76f",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "e96a7e4a-75e1-4781-88d7-a203a6c2f278",
+         "description": "In order to ensure Ubuntu operating systems have a sufficient storage capacity in which to write the audit logs, Ubuntu operating systems need to be able to allocate audit record storage capacity.      The task of allocating audit record storage capacity is usually performed during initial installation of the Ubuntu operating system."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "01ea5f31-276e-4487-a2b4-f3fc279eeabd",
+     "control-id": "au-4.1",
+     "parameter-settings": {},
+     "statements": {
+      "au-4.1_smt": {
+       "uuid": "7a8f0ac2-a43f-46f9-ace8-4fe3de64f902",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "6850282b-eff0-4541-b890-a4eb07a9b000",
+         "description": "Information stored in one location is vulnerable to accidental or incidental deletion or alteration.      Off-loading is a common process in information systems with limited audit storage capacity.\n\nInformation stored in one location is vulnerable to accidental or incidental deletion or alteration.      Off-loading is a common process in information systems with limited audit storage capacity.\n\nInformation stored in one location is vulnerable to accidental or incidental deletion or alteration.      Off-loading is a common process in information systems with limited audit storage capacity.\n\nInformation stored in one location is vulnerable to accidental or incidental deletion or alteration.      Off-loading is a common process in information systems with limited audit storage capacity.\n\nInformation stored in one location is vulnerable to accidental or incidental deletion or alteration.      Off-loading is a common process in information systems with limited audit storage capacity."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "c028a48e-9571-4f60-9483-876fffc747bb",
+     "control-id": "au-5.1",
+     "parameter-settings": {},
+     "statements": {
+      "au-5.1_smt": {
+       "uuid": "c7460a71-5c28-4cb8-b4b7-bfc9e249ad56",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "07466e74-19df-4dd7-8599-118c25c52f23",
+         "description": "If security personnel are not notified immediately when storage volume reaches 75% utilization, they are unable to plan for audit record storage capacity expansion.\n\nIf security personnel are not notified immediately when storage volume reaches 75% utilization, they are unable to plan for audit record storage capacity expansion."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "214717b1-ce46-4bd5-931d-f30cd9dd2af4",
+     "control-id": "au-9",
+     "parameter-settings": {},
+     "statements": {
+      "au-9_smt": {
+       "uuid": "200e729a-aab5-4bc0-8815-9b82879e6357",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "8739a89a-bae8-479b-b82a-0de61ab7d441",
+         "description": "Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nUnauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nUnauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nUnauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nUnauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nUnauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.      Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit Ubuntu operating system activity.\n\nProtecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.      Ubuntu operating systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools and the corresponding rights the user enjoys in order to make access decisions regarding the access to audit tools.      Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.\n\nProtecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.      Ubuntu operating systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools and the corresponding rights the user enjoys in order to make access decisions regarding the access to audit tools.      Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.\n\nProtecting audit information also includes identifying and protecting the tools used to view and manipulate log data. Therefore, protecting audit tools is necessary to prevent unauthorized operation on audit information.      Ubuntu operating systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools and the corresponding rights the user enjoys in order to make access decisions regarding the access to audit tools.      Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "132d211c-d4d4-4c5b-9f92-2656076cf83c",
+     "control-id": "au-9.3",
+     "parameter-settings": {},
+     "statements": {
+      "au-9.3_smt": {
+       "uuid": "26646601-d430-4d33-baf5-3a0537ff3390",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "64da0b16-0949-43a1-b259-45df9c707cf8",
+         "description": "Protecting the integrity of the tools used for auditing purposes is a critical step toward ensuring the integrity of audit information. Audit information includes all information (e.g., audit records, audit settings, and audit reports) needed to successfully audit information system activity.      Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.      It is not uncommon for attackers to replace the audit tools or inject code into the existing tools with the purpose of providing the capability to hide or erase system activity from the audit logs.      To address this risk, audit tools must be cryptographically signed in order to provide the capability to identify when the audit tools have been modified, manipulated, or replaced. An example is a checksum hash of the file or files."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "2b8b219f-6f49-4e98-a27a-1623285c69b4",
+     "control-id": "cm-3.5",
+     "parameter-settings": {},
+     "statements": {
+      "cm-3.5_smt": {
+       "uuid": "48100f61-a9ae-4089-ba97-b18077d5c1f4",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "1027213c-fb96-4541-9358-3c77b45e8949",
+         "description": "Unauthorized changes to the baseline configuration could make the system vulnerable to various attacks or allow unauthorized access to the Ubuntu operating system. Changes to Ubuntu operating system configurations can have unintended side effects, some of which may be relevant to security.      Security function is defined as the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Security functionality includes, but is not limited to, establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters.      Detecting such changes and providing an automated response can help avoid unintended, negative consequences that could ultimately affect the security state of the Ubuntu operating system. The Ubuntu operating system&#39;s IMO/ISSO and SAs must be notified via email and/or monitoring system trap when there is an unauthorized modification of a configuration item.      Notifications provided by information systems include messages to local computer consoles, and/or hardware indications, such as lights.      This capability must take into account operational requirements for availability for selecting an appropriate response. The organization may choose to shut down or restart the information system upon security function anomaly detection."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "e4a88cc5-10c1-4908-a7f9-fffc4cf91697",
+     "control-id": "cm-5.3",
+     "parameter-settings": {},
+     "statements": {
+      "cm-5.3_smt": {
+       "uuid": "7e1ef1a2-4687-4d37-b5f9-f68801910b3a",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "9df234d9-81eb-44ec-91b0-6d2410ef712d",
+         "description": "Changes to any software components can have significant effects on the overall security of the Ubuntu operating system. This requirement ensures the software has not been tampered with and that it has been provided by a trusted vendor.      Accordingly, patches, service packs, device drivers, or Ubuntu operating system components must be signed with a certificate recognized and approved by the organization.      Verifying the authenticity of the software prior to installation validates the integrity of the patch or upgrade received from a vendor. Setting the &#34;Verify-Peer&#34; Boolean will determine whether or not the server&#39;s host certificate should be verified against trusted certificates. This ensures the software has not been tampered with and that it has been provided by a trusted vendor. Self-signed certificates are disallowed by this requirement. The Ubuntu operating system should not have to verify the software again. This requirement does not mandate DoD certificates for this purpose; however, the certificate used to verify the software must be from an approved CA."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "99a3538e-55d5-4aa0-8628-f444cfa424de",
+     "control-id": "cm-5.6",
+     "parameter-settings": {},
+     "statements": {
+      "cm-5.6_smt": {
+       "uuid": "b8a061a4-abe0-46d5-be43-ac1267bd26da",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "2924edb0-5b4f-4064-996e-b510e6ebdfe5",
+         "description": "If the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.\n\nIf the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.\n\nIf the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.\n\nIf the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.\n\nIf the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications.\n\nIf the Ubuntu operating system were to allow any user to make changes to software libraries, then those changes might be implemented without undergoing the appropriate testing and approvals that are part of a robust change management process.      This requirement applies to Ubuntu operating systems with software libraries that are accessible and configurable, as in the case of interpreted languages. Software libraries also include privileged programs which execute with escalated privileges. Only qualified and authorized individuals shall be allowed to obtain access to information system components for purposes of initiating changes, including upgrades and modifications."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "964254b0-cdda-470f-8441-9050303402eb",
+     "control-id": "cm-7.2",
+     "parameter-settings": {},
+     "statements": {
+      "cm-7.2_smt": {
+       "uuid": "56a087a7-15a1-45d9-b8f1-fd8e54f61b5b",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "27f018ee-c4ed-4600-aec5-b12ffa122862",
+         "description": "The organization must identify authorized software programs and permit execution of authorized software. The process used to identify software programs that are authorized to execute on organizational information systems is commonly referred to as whitelisting.      Utilizing a whitelist provides a configuration management method for allowing the execution of only authorized software. Using only authorized software decreases risk by limiting the number of potential vulnerabilities. Verification of white-listed software occurs prior to execution or at system startup.      Users&#39; home directories/folders may contain information of a sensitive nature. Non-privileged users should coordinate any sharing of information with an SA through shared resources."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "09f9b5e2-2132-4704-b2bb-aac5a189ef6a",
+     "control-id": "ia-11",
+     "parameter-settings": {},
+     "statements": {
+      "ia-11_smt": {
+       "uuid": "395978a6-932c-44cf-9a9d-02765000e32d",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "bddb2c3c-e53c-413b-8c21-e465dd2a8d98",
+         "description": "Without re-authentication, users may access resources or perform tasks for which they do not have authorization.      When Ubuntu operating systems provide the capability to escalate a functional capability or change security roles, it is critical the user re-authenticate."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "9a34acd6-8b77-42dd-8934-5c70ff916b38",
+     "control-id": "ia-2",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2_smt": {
+       "uuid": "9aa44f48-f081-4979-8500-017d11e67d11",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "e9d3e67f-067f-4652-af41-da8e6086a054",
+         "description": "To assure accountability and prevent unauthenticated access, interactive users must be identified and authenticated to prevent potential misuse and compromise of the system.      Interactive users include organizational employees or individuals the organization deems to have equivalent status of employees (e.g., contractors). Interactive users (and processes acting on behalf of users) must be uniquely identified and authenticated to all accesses, except for the following:      1) Accesses explicitly identified and documented by the organization. Organizations document specific user actions that can be performed on the information system without identification or authentication; and      2) Accesses that occur through authorized use of group authenticators without individual authentication. Organizations may require unique identification of individuals in group accounts (e.g., shared privilege accounts) or for detailed accountability of individual activity."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "b8a83eb9-bd56-4e3f-9452-a0171983d9ae",
+     "control-id": "ia-2.1",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.1_smt": {
+       "uuid": "e53c26c7-073a-4dc4-8410-aaa56be11ddf",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "2672f562-f63a-475f-ab50-27c021c2b584",
+         "description": "Using an authentication device, such as a CAC or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.      Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification card and the DoD Common Access Card.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      This requirement only applies to components where this is specific to the function of the device or has the concept of an organizational user (e.g., VPN, proxy capability). This does not apply to authentication for the purpose of configuring the device itself (management).      Requires further clarification from NIST."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "ff5aa9b3-b3b9-4ee8-adac-f45d9406b790",
+     "control-id": "ia-2.11",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.11_smt": {
+       "uuid": "31de8ebe-735c-4eb0-9db1-89c18d285fde",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "5edb6e0c-821b-430c-8559-82cd8ebb2c15",
+         "description": "Using an authentication device, such as a CAC or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.      Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification card and the DoD Common Access Card.      A privileged account is defined as an information system account with authorizations of a privileged user.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      This requirement only applies to components where this is specific to the function of the device or has the concept of an organizational user (e.g., VPN, proxy capability). This does not apply to authentication for the purpose of configuring the device itself (management).      Requires further clarification from NIST.\n\nUsing an authentication device, such as a CAC or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.      Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification card and the DoD Common Access Card.      A privileged account is defined as an information system account with authorizations of a privileged user.      Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.      This requirement only applies to components where this is specific to the function of the device or has the concept of an organizational user (e.g., VPN, proxy capability). This does not apply to authentication for the purpose of configuring the device itself (management).      Requires further clarification from NIST."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "c74a1fd3-50a0-40f5-963c-05d01257feef",
+     "control-id": "ia-2.12",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.12_smt": {
+       "uuid": "8d166ad0-dd48-4ba6-bc5c-f5488e4d1f95",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "96314a57-bbd8-469f-8eb5-27d402b7ce71",
+         "description": "The use of PIV credentials facilitates standardization and reduces the risk of unauthorized access.      DoD has mandated the use of the CAC to support identity management and personal authentication for systems covered under Homeland Security Presidential Directive (HSPD) 12, as well as making the CAC a primary component of layered protection for national security systems."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "7b08a746-3685-414a-a9fe-6a265164bcfa",
+     "control-id": "ia-2.5",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.5_smt": {
+       "uuid": "9e1808a5-9619-4729-b368-e64729837db5",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "ff4363b2-9b23-4be0-b35e-227df7c4991e",
+         "description": "To assure individual accountability and prevent unauthorized access, organizational users must be individually identified and authenticated.      A group authenticator is a generic account used by multiple individuals. Use of a group authenticator alone does not uniquely identify individual users. Examples of the group authenticator is the UNIX OS &#34;root&#34; user account, the Windows &#34;Administrator&#34; account, the &#34;sa&#34; account, or a &#34;helpdesk&#34; account.      For example, the UNIX and Windows operating systems offer a &#39;switch user&#39; capability allowing users to authenticate with their individual credentials and, when needed, &#39;switch&#39; to the administrator role. This method provides for unique individual authentication prior to using a group authenticator.      Users (and any processes acting on behalf of users) need to be uniquely identified and authenticated for all accesses other than those accesses explicitly identified and documented by the organization, which outlines specific user actions that can be performed on the Ubuntu operating system without identification or authentication.      Requiring individuals to be authenticated with an individual authenticator prior to using a group authenticator allows for traceability of actions, as well as adding an additional level of protection of the actions that can be taken with group account knowledge."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "e8b09430-4f08-4695-9bd4-27ab51536051",
+     "control-id": "ia-2.8",
+     "parameter-settings": {},
+     "statements": {
+      "ia-2.8_smt": {
+       "uuid": "70abf020-9d9f-425b-8479-a5b44a62f745",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "28bf628c-e65c-4163-bd2c-a1033af00234",
+         "description": "A replay attack may enable an unauthorized user to gain access to the Ubuntu operating system. Authentication sessions between the authenticator and the Ubuntu operating system validating the user credentials must not be vulnerable to a replay attack.      An authentication process resists replay attacks if it is impractical to achieve a successful authentication by recording and replaying a previous authentication message.      A privileged account is any information system account with authorizations of a privileged user.      Techniques used to address this include protocols using nonces (e.g., numbers generated for a specific one-time use) or challenges (e.g., TLS, WS_Security). Additional techniques include time-synchronous or challenge-response one-time authenticators."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "b533e487-02fb-44dd-810d-027f926c525c",
+     "control-id": "ia-3",
+     "parameter-settings": {},
+     "statements": {
+      "ia-3_smt": {
+       "uuid": "a6181211-aaf0-4442-b5ee-c19c46420cab",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "ca7cb3ee-0049-4b1c-9ff1-3a5066b66407",
+         "description": "Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.      Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "28ef8056-4296-41a6-81b8-ed6e867ab4d4",
+     "control-id": "ia-5.13",
+     "parameter-settings": {},
+     "statements": {
+      "ia-5.13_smt": {
+       "uuid": "6c8d0940-b1f9-486f-88ea-974d8cc4241b",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "53cd2ac8-912b-42fe-93ad-1b62c73c58fe",
+         "description": "If cached authentication information is out-of-date, the validity of the authentication information may be questionable."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "730d7008-e6ef-4065-bfcc-3d4204264166",
+     "control-id": "ia-7",
+     "parameter-settings": {},
+     "statements": {
+      "ia-7_smt": {
+       "uuid": "311e269e-2d02-4d89-bb12-44edcdcc254e",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "a75a7cde-8974-4113-921f-119f264553ea",
+         "description": "Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.      Ubuntu operating systems utilizing encryption are required to use FIPS-compliant mechanisms for authenticating to cryptographic modules.      FIPS 140-2 is the current standard for validating that mechanisms used to access cryptographic modules utilize authentication that meets DoD requirements. This allows for Security Levels 1, 2, 3, or 4 for use on a general purpose computing system."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "b5a058dc-2d1f-41ff-9222-49beadbc6332",
+     "control-id": "sc-13",
+     "parameter-settings": {
+      "sc-13_prm_1": {
+       "values": [
+        "FIPS-validated or NSA-approved cryptography"
+       ]
+      }
+     },
+     "statements": {
+      "sc-13_smt": {
+       "uuid": "db163c0c-83a6-46d2-b74a-fd6d25cd07d8",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "c6cb41b9-6753-43b7-9ff2-9124a7908d7b",
+         "description": "Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to protect data. The Ubuntu operating system must implement cryptographic modules adhering to the higher standards approved by the federal government since this provides assurance they have been tested and validated."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "c89e94b7-ac09-4c1f-b27c-bba85c24e16a",
+     "control-id": "sc-28",
+     "parameter-settings": {
+      "sc-28_prm_1": {
+       "values": [
+        "confidentiality AND integrity"
+       ]
+      }
+     },
+     "statements": {
+      "sc-28_smt": {
+       "uuid": "e6eaf7e6-0e69-4416-a1f2-8e5a6fd03fa0",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "b40f927e-cb2d-4e07-93d2-966739a9af1d",
+         "description": "Ubuntu operating systems handling data requiring &#34;data at rest&#34; protections must employ cryptographic mechanisms to prevent unauthorized disclosure and modification of the information at rest.      Selection of a cryptographic mechanism is based on the need to protect the integrity of organizational information. The strength of the mechanism is commensurate with the security category and/or classification of the information. Organizations have the flexibility to either encrypt all information on storage devices (i.e., full disk encryption) or encrypt specific data structures (e.g., files, records, or fields)."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "3a8e68c7-6f32-4431-a90a-7c60db5eddf1",
+     "control-id": "sc-4",
+     "parameter-settings": {},
+     "statements": {
+      "sc-4_smt": {
+       "uuid": "153458f8-afec-49f9-90eb-11823aa5ab58",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "b6ff7237-049a-4f0e-9384-da162e4b8cd2",
+         "description": "Preventing unauthorized information transfers mitigates the risk of information, including encrypted representations of information, produced by the actions of prior users/roles (or the actions of processes acting on behalf of prior users/roles) from being available to any current users/roles (or current processes) that obtain access to shared system resources (e.g., registers, main memory, hard disks) after those resources have been released back to information systems. The control of information in shared resources is also commonly referred to as object reuse and residual information protection.      This requirement generally applies to the design of an information technology product, but it can also apply to the configuration of particular information system components that are, or use, such products. This can be verified by acceptance/validation processes in DoD or other government agencies.      There may be shared resources with configurable protections (e.g., files in storage) that may be assessed on specific information system components.\n\nIf a world-writable directory has the sticky bit set and is not group-owned by a privileged Group Identifier (GID), unauthorized users may be able to modify files created by others.      The only authorized public directories are those temporary directories supplied with the system or those designed to be temporary file repositories. The setting is normally reserved for directories used by the system and by users for temporary file storage, (e.g., /tmp), and for directories requiring global read/write access.\n\nPreventing unauthorized information transfers mitigates the risk of information, including encrypted representations of information, produced by the actions of prior users/roles (or the actions of processes acting on behalf of prior users/roles) from being available to any current users/roles (or current processes) that obtain access to shared system resources (e.g., registers, main memory, hard disks) after those resources have been released back to information systems. The control of information in shared resources is also commonly referred to as object reuse and residual information protection.      This requirement generally applies to the design of an information technology product, but it can also apply to the configuration of particular information system components that are, or use, such products. This can be verified by acceptance/validation processes in DoD or other government agencies.      There may be shared resources with configurable protections (e.g., files in storage) that may be assessed on specific information system components."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "773dc07b-3eff-4d61-a78e-92a20d0c62ce",
+     "control-id": "sc-5",
+     "parameter-settings": {},
+     "statements": {
+      "sc-5_smt": {
+       "uuid": "48bbf6c7-d1cb-4dd0-ac32-4c1c449b0af9",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "e22996a9-37cd-4392-af02-24adf4d4006e",
+         "description": "DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity.      This requirement addresses the configuration of the Ubuntu operating system to mitigate the impact of DoS attacks that have occurred or are ongoing on system availability. For each system, known and potential DoS attacks must be identified and solutions for each type implemented. A variety of technologies exist to limit or, in some cases, eliminate the effects of DoS attacks (e.g., limiting processes or establishing memory partitions). Employing increased capacity and bandwidth, combined with service redundancy, may reduce the susceptibility to some DoS attacks."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5c51c21a-b7c7-4498-af56-c26379cacd11",
+     "control-id": "sc-5.2",
+     "parameter-settings": {},
+     "statements": {
+      "sc-5.2_smt": {
+       "uuid": "9e33e844-637e-452a-b225-04ebeca70bf5",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "c1d171a0-1cf8-4ce4-9f02-368a5d42602a",
+         "description": "DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity.      Managing excess capacity ensures that sufficient capacity is available to counter flooding attacks. Employing increased capacity and service redundancy may reduce the susceptibility to some DoS attacks. Managing excess capacity may include, for example, establishing selected usage priorities, quotas, or partitioning."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "d5523fcc-9544-4538-af05-edeb2cbc1e62",
+     "control-id": "sc-8",
+     "parameter-settings": {
+      "sc-8_prm_1": {
+       "values": [
+        "confidentiality AND integrity"
+       ]
+      }
+     },
+     "statements": {
+      "sc-8_smt": {
+       "uuid": "a6df1e1a-e8e8-4ad1-90a8-29784763b260",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "88239a62-44af-4b92-90a6-a22391321845",
+         "description": "Without protection of the transmitted information, confidentiality and integrity may be compromised because unprotected communications can be intercepted and either read or altered.      This requirement applies to both internal and external networks and all types of information system components from which information can be transmitted (e.g., servers, mobile devices, notebook computers, printers, copiers, scanners, and facsimile machines). Communication paths outside the physical protection of a controlled boundary are exposed to the possibility of interception and modification.      Protecting the confidentiality and integrity of organizational information can be accomplished by physical means (e.g., employing physical distribution systems) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, logical means (cryptography) do not have to be employed, and vice versa."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "5554c2e8-4f34-4efb-8dc4-4b4e65b1bc35",
+     "control-id": "si-16",
+     "parameter-settings": {},
+     "statements": {
+      "si-16_smt": {
+       "uuid": "45b43f9d-5dc7-416d-99d1-49d5e7a7fbd9",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "608a723a-328d-4be7-8444-9d932a3929c3",
+         "description": "Some adversaries launch attacks with the intent of executing code in non-executable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can either be hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.      Examples of attacks are buffer overflow attacks.\n\nSome adversaries launch attacks with the intent of executing code in non-executable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can either be hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.      Examples of attacks are buffer overflow attacks."
+        }
+       }
+      }
+     }
+    },
+    {
+     "uuid": "a0139c1d-674d-40ba-bfbe-bb9ac20ebf76",
+     "control-id": "si-2.6",
+     "parameter-settings": {},
+     "statements": {
+      "si-2.6_smt": {
+       "uuid": "3a911338-4104-43d4-8fb1-65bb1a944f56",
+       "by-components": {
+        "91d0e6c5-2113-4af8-8685-97ba3c30124e": {
+         "uuid": "1300b6ac-d5c3-4eeb-beba-2f6cac7644e5",
+         "description": "Previous versions of software components that are not removed from the information system after updates have been installed may be exploited by adversaries. Some information technology products may remove older versions of software automatically from the information system."
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}
