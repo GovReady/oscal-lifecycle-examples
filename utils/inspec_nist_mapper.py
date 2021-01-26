@@ -11,12 +11,21 @@
 # Notes:
 #   Hardcoded file paths for input and output
 
+from argparse import ArgumentParser
 import json
 import logging
 import os
 import sys
 from pprint import pprint
 import datetime
+
+LOGFORMAT = os.environ.get("LOGFORMAT", "%(levelname)2s %(message)s")
+LOGROOT = os.environ.get("LOGROOT", "root")
+LOGLEVEL = os.environ.get("LOGLEVEL", "INFO").upper()
+SELF_PATH = os.environ.get("SELF_PATH", os.path.dirname(os.path.abspath(__file__)))
+logging.basicConfig(format=LOGFORMAT)
+logger = logging.getLogger(LOGROOT)
+logger.setLevel(level=LOGLEVEL)
 
 
 class InSpecMapper():
@@ -154,7 +163,24 @@ class InSpecMapper():
             logging.error(str(err))
             return []
 
-if __name__ == '__main__':
+def run():
+    """
+    A utility function to parse runtime arguments and run common InspecMapper
+    operations in a way that will be callable from the CLI or an additional
+    Python library.
+    """
+    parser = ArgumentParser(
+        description="An example Inspec mapper class for mapping into GovReady's 'OSCALized' JSON format.")
+    parser.add_argument("-i", "--inspec-profile", required=False, dest="inspec_path",
+                        help="Path to the input Inspec profile",
+                        default='heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json')
+
+    args, rest = parser.parse_known_args()
+
+    logger.debug(f"args: {args}")
+    logger.debug(f"rest: {rest}")
+    config = vars(args)
+
     # Collate a component InSpec profile around NIST controls
 
     # Instantiate InSpecMapper for a component
@@ -194,3 +220,7 @@ if __name__ == '__main__':
 
     # Here is how to see a mapping
     # pprint(nist_800_53_tag_map['AC-10'])
+
+
+if __name__ == '__main__':
+    run()
