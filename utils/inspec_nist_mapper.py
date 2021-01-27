@@ -48,10 +48,7 @@ class InSpecMapper():
 
             # We are only interested in the granular `controls`
             self.controls = self.get_controls(self.profile)
-
-            # TODO: Get components name
-            # Set components name
-            # self.cmpt_name = ?????????
+            self.name = self.get_name(self.profile)
 
         except Exception as err:
             logging.error(str(err))
@@ -71,13 +68,25 @@ class InSpecMapper():
         """Confirm InSpec profile has control block"""
 
         try:
+            if not profile.get('name'):
+                return False
+
             if not profile.get('controls'):
                 return False
 
             return True
         except Exception as err:
-            logging.error(str(err))
+            logger.error(str(err))
             return False
+
+    def get_name(self, profile):
+        """Get name for a component directly from Inspec profile."""
+        try:
+            return profile.get('name')
+
+        except Exception as err:
+            logger.error(str(err))
+            return ''
 
     def get_controls(self, profile):
         """Get granular STIG controls from InSpec profile"""
@@ -85,7 +94,7 @@ class InSpecMapper():
         try:
             return profile.get('controls')
         except Exception as err:
-            logging.error(str(err))
+            logger.error(str(err))
             return []
 
     def map_controls_by_tags(self, tag):
@@ -101,7 +110,7 @@ class InSpecMapper():
 
             return tag_map
         except Exception as err:
-            logging.error(str(err))
+            logger.error(str(err))
             return {}
 
     def generate_jsonl_statements(self, tag="nist"):
@@ -116,7 +125,7 @@ class InSpecMapper():
                 json_l_statements.append(json.dumps(dict(control_id=control_id, text="\n\n".join(combined_stig_rule_desc_list))))
             return json_l_statements
         except Exception as err:
-            logging.error(str(err))
+            logger.error(str(err))
             return []
 
     def generate_combined_statements(self, cmpt_name="My Component", tag='nist'):
@@ -160,7 +169,7 @@ class InSpecMapper():
                 combined['components'][cmpt_name][catalog][control_id] = [dict(text="\n\n".join(combined_stig_rule_desc_list), source=source)]
             return combined
         except Exception as err:
-            logging.error(str(err))
+            logger.error(str(err))
             return []
 
 def run():
@@ -175,8 +184,7 @@ def run():
                         help='Path to the input Inspec profile',
                         default='heimdall/canonical-ubuntu-16.04-lts-stig-baseline-inspec-profile.json')
     parser.add_argument('-c', '--component-name', required=False, dest='component_name',
-                        help='The name of the resulting OSCAL component described with Inspec profile.',
-                        default='Ubuntu 16.04 LTS')
+                        help='The name of the resulting OSCAL component described with Inspec profile.')
     parser.add_argument('-t', '--inspec-tag', required=False, dest='inspec_tag',
                         help='The relevant tag in the Inspec profile that will drive mapping keys.',
                         default='nist')
@@ -230,7 +238,8 @@ def run():
 
     try:
         # Convert to GovReady combined file format, precursor to oscalization
-        nist_800_53_tag_map = inspec_cmpt.generate_combined_statements(config.get('component_name'), config.get('inspec_tag'))
+        component_name = config.get('component_name') if config.get('component_name') else inspec_cmpt.name
+        nist_800_53_tag_map = inspec_cmpt.generate_combined_statements(component_name, config.get('inspec_tag'))
         # Hardcoded output file path
         converted_path = config.get('oscal_component_path')
         # Dump conversion to json-l format that GovReady uses in a oscalizing pipeline to a file
