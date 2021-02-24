@@ -28,11 +28,10 @@
       <party uuid="88b4da13-bce0-44a4-9d4e-6361392e4487" type="organization">
          <name>The Advanced Technology Academic Research Center (ATARC)</name>
          <short-name>ATARC</short-name>
-         <link href="https://atarc.org  "/>
+         <link href="https://atarc.org"/>
          <email-address>info@atarc.org</email-address>
          <address type="work">
             <addr-line>2200 Wilson Boulevard</addr-line>
-            <addr-line/>
             <city>Arlington</city>
             <state>VA</state>
             <postal-code>22201</postal-code>/>
