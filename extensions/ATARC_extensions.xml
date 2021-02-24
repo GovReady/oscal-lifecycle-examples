@@ -68,7 +68,7 @@
       <extension-name>assessment-method-id</extension-name>
       <formal-name>Identifier of Assessment Method Metadata</formal-name>
       <description>Provides the UUID used as a lookup key to find the correct assessment method in resources.</description>
-      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='assessment-method-id']" />
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='assessment-method-id']" />
       <constraint>
          <matches data-type="uuid" />
          <has-cardinality min-occurs="0" max-occurs="1" />
@@ -83,7 +83,7 @@
       <extension-name>cci-crosswalk-id</extension-name>
       <formal-name>STIG Control Correlation Identifier</formal-name>
       <description>Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.</description>
-      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='cci-crosswalk-id']" />
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='cci-crosswalk-id']" />
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
@@ -97,7 +97,7 @@
          <p>For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.</p>
          <p>Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.</p>
       </description>
-      <binding pattern="o:component/os:control-implementation/o:implemented-requirements/o:prop[@name='maxlogins']" />
+      <binding pattern="o:component/os:control-implementation/o:implemented-requirements/o:prop[@class='maxlogins']" />
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="0" max-occurs="1" />

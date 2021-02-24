@@ -76,7 +76,7 @@
                 "description": "Provides the UUID used as a lookup key to find the correct assessment method in resources.",
                 "bindings": [
                     {
-                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='assessment-method-id']"
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='assessment-method-id']"
                     }
                 ],
                 "constraint": {
@@ -107,7 +107,7 @@
                 "description": "Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.",
                 "bindings": [
                     {
-                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='cci-crosswalk-id']"
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='cci-crosswalk-id']"
                     }
                 ],
                 "constraint": {
@@ -128,7 +128,7 @@
                 "description": "\n         For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.\n         Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.\n      ",
                 "bindings": [
                     {
-                        "pattern": "o:component/os:control-implementation/o:implemented-requirements/o:prop[@name='maxlogins']"
+                        "pattern": "o:component/os:control-implementation/o:implemented-requirements/o:prop[@class='maxlogins']"
                     }
                 ],
                 "constraint": {
