@@ -1,0 +1,73 @@
+{
+    "extensions": {
+        "uuid": "CB987D0C-B828-41D2-9736-E2D91CB75783",
+        "metadata": {
+            "title": "[EXPERIMENTAL] ATARC xtension for InSpec Automation [DRAFT]",
+            "published": "2021-02-23T00:00:00Z",
+            "last-modified": "2021-02-23T00:00:00Z",
+            "version": "DRAFT-01",
+            "oscal-version": "1.0.0-rc1",
+            "revisions": [
+                {
+                    "published": "2021-02-23T00:00:00Z",
+                    "version": "DRAFT-01",
+                    "props": [
+                        {
+                            "name": "party-uuid",
+                            "ns": "https://atarc.org/ns/oscal",
+                            "value": "f042e28d-b56c-47a0-913e-f0780c1eb3f8"
+                        }
+                    ],
+                    "remarks": "Initial draft."
+                }
+            ],
+            "roles": [
+                {
+                    "id": "prepared-by",
+                    "title": "Prepared By",
+                    "description": "The ATARC Working Group for DevSecOps and OSCAL"
+                }
+            ],
+            "parties": [
+                {
+                    "uuid": "88b4da13-bce0-44a4-9d4e-6361392e4487",
+                    "type": "organization",
+                    "name": "The Advanced Technology Academic Research Center (ATARC)",
+                    "short-name": "ATARC",
+                    "links": [
+                        {
+                            "href": "https://atarc.org  "
+                        }
+                    ],
+                    "email-addresses": [
+                        "info@atarc.org"
+                    ],
+                    "addresses": [
+                        {
+                            "type": "work",
+                            "addr-lines": [
+                                "2200 Wilson Boulevard"
+                            ],
+                            "city": "Arlington",
+                            "state": "VA",
+                            "postal-code": "22201",
+                            "country": "US"
+                        }
+                    ],
+                    "remarks": "This party helped prepare this reference component as part of an ATARC pilot."
+                }
+            ],
+            "responsible-parties": {
+                "prepared-by": {
+                    "party-uuids": [
+                        "45275ef8-4952-499c-9378-31f8a87d4104"
+                    ]
+                }
+            },
+            "remarks": "This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet ATARC requirements.\n\nIt provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary.\n\nThey realize a mapping between OSCAL requirements for a FedRAMP SSP component and test criteria and testing tools part of the MITRE Security Automation Framework (SAF)."
+        },
+        "extension-namespace": {
+            "ns": "https://atarc.org/ns/oscal"
+        }
+    }
+}
