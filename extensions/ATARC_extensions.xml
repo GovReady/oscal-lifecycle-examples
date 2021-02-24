@@ -64,4 +64,48 @@
    <!--  EXTENSIONS  -->
    <!-- ===================================================================== -->
 
+   <extension id="assessment-method-id">
+      <extension-name>assessment-method-id</extension-name>
+      <formal-name>Identifier of Assessment Method Metadata</formal-name>
+      <description>Provides the UUID used as a lookup key to find the correct assessment method in resources.</description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='assessment-method-id']" />
+      <constraint>
+         <matches data-type="uuid" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:back-matter/o:resources/@uuid">
+            <key-field target="./@uuid"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
+   <extension id="cci-crosswalk-id">
+      <extension-name>cci-crosswalk-id</extension-name>
+      <formal-name>STIG Control Correlation Identifier</formal-name>
+      <description>Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.</description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='cci-crosswalk-id']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="unbounded" />
+      </constraint>
+   </extension>
+
+   <extension id="maxlogins">
+      <extension-name>maxlogins</extension-name>
+      <formal-name>Maximum Concurrent Logins</formal-name>
+      <description>
+         <p>For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.</p>
+         <p>Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.</p>
+      </description>
+      <binding pattern="o:component/os:control-implementation/o:implemented-requirements/o:prop[@name='maxlogins']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:component/o:control-implementation/o:implemented-requirements/o:set-parameters">
+            <key-field target="./@name"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
 </extensions>

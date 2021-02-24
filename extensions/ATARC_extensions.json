@@ -36,7 +36,7 @@
                     "short-name": "ATARC",
                     "links": [
                         {
-                            "href": "https://atarc.org  "
+                            "href": "https://atarc.org"
                         }
                     ],
                     "email-addresses": [
@@ -68,6 +68,91 @@
         },
         "extension-namespace": {
             "ns": "https://atarc.org/ns/oscal"
+        },
+        "extensions": {
+            "assessment-method-id": {
+                "extension-name": "assessment-method-id",
+                "formal-name": "Identifier of Assessment Method Metadata",
+                "description": "Provides the UUID used as a lookup key to find the correct assessment method in resources.",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='assessment-method-id']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uuid"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:back-matter/o:resources/@uuid",
+                            "key-fields": {
+                                "target": "./@uuid"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
+            },
+            "cci-crosswalk-id": {
+                "extension-name": "cci-crosswalk-id",
+                "formal-name": "STIG Control Correlation Identifier",
+                "description": "Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@name='cci-crosswalk-id']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "maxlogins": {
+                "extension-name": "maxlogins",
+                "formal-name": "Maximum Concurrent Logins",
+                "description": "\n         For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.\n         Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.\n      ",
+                "bindings": [
+                    {
+                        "pattern": "o:component/os:control-implementation/o:implemented-requirements/o:prop[@name='maxlogins']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:component/o:control-implementation/o:implemented-requirements/o:set-parameters",
+                            "key-fields": {
+                                "target": "./@name"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
+            }
         }
     }
 }
