@@ -108,4 +108,21 @@
       </constraint>
    </extension>
 
+   <extension id="banner_text">
+      <extension-name>banner_text</extension-name>
+      <formal-name>System Use Notification</formal-name>
+      <description>
+         <p>System use notification to users before granting access to the system that provides privacy and security notices.</p>
+      </description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='banner_text']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:component/o:control-implementation/o:implemented-requirements/o:set-parameters">
+            <key-field target="./@name"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
 </extensions>

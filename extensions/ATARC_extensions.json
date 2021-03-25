@@ -152,6 +152,37 @@
                         }
                     ]
                 }
+            },
+            "banner_text": {
+                "extension-name": "banner_text",
+                "formal-name": "System Use Notification",
+                "description": "\n         System use notification to users before granting access to the system that provides privacy and security notices.\n      ",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='banner_text']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:component/o:control-implementation/o:implemented-requirements/o:set-parameters",
+                            "key-fields": {
+                                "target": "./@name"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
             }
         }
     }
