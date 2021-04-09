@@ -1,0 +1,189 @@
+{
+    "extensions": {
+        "uuid": "CB987D0C-B828-41D2-9736-E2D91CB75783",
+        "metadata": {
+            "title": "[EXPERIMENTAL] ATARC xtension for InSpec Automation [DRAFT]",
+            "published": "2021-02-23T00:00:00Z",
+            "last-modified": "2021-02-23T00:00:00Z",
+            "version": "DRAFT-01",
+            "oscal-version": "1.0.0-rc1",
+            "revisions": [
+                {
+                    "published": "2021-02-23T00:00:00Z",
+                    "version": "DRAFT-01",
+                    "props": [
+                        {
+                            "name": "party-uuid",
+                            "ns": "https://atarc.org/ns/oscal",
+                            "value": "f042e28d-b56c-47a0-913e-f0780c1eb3f8"
+                        }
+                    ],
+                    "remarks": "Initial draft."
+                }
+            ],
+            "roles": [
+                {
+                    "id": "prepared-by",
+                    "title": "Prepared By",
+                    "description": "The ATARC Working Group for DevSecOps and OSCAL"
+                }
+            ],
+            "parties": [
+                {
+                    "uuid": "88b4da13-bce0-44a4-9d4e-6361392e4487",
+                    "type": "organization",
+                    "name": "The Advanced Technology Academic Research Center (ATARC)",
+                    "short-name": "ATARC",
+                    "links": [
+                        {
+                            "href": "https://atarc.org"
+                        }
+                    ],
+                    "email-addresses": [
+                        "info@atarc.org"
+                    ],
+                    "addresses": [
+                        {
+                            "type": "work",
+                            "addr-lines": [
+                                "2200 Wilson Boulevard"
+                            ],
+                            "city": "Arlington",
+                            "state": "VA",
+                            "postal-code": "22201",
+                            "country": "US"
+                        }
+                    ],
+                    "remarks": "This party helped prepare this reference component as part of an ATARC pilot."
+                }
+            ],
+            "responsible-parties": {
+                "prepared-by": {
+                    "party-uuids": [
+                        "45275ef8-4952-499c-9378-31f8a87d4104"
+                    ]
+                }
+            },
+            "remarks": "This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet ATARC requirements.\n\nIt provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary.\n\nThey realize a mapping between OSCAL requirements for a FedRAMP SSP component and test criteria and testing tools part of the MITRE Security Automation Framework (SAF)."
+        },
+        "extension-namespace": {
+            "ns": "https://atarc.org/ns/oscal"
+        },
+        "extensions": {
+            "assessment-method-id": {
+                "extension-name": "assessment-method-id",
+                "formal-name": "Identifier of Assessment Method Metadata",
+                "description": "Provides the UUID used as a lookup key to find the correct assessment method in resources.",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='assessment-method-id']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uuid"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:back-matter/o:resources/@uuid",
+                            "key-fields": {
+                                "target": "./@uuid"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
+            },
+            "cci-crosswalk-id": {
+                "extension-name": "cci-crosswalk-id",
+                "formal-name": "STIG Control Correlation Identifier",
+                "description": "Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='cci-crosswalk-id']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "maxlogins": {
+                "extension-name": "maxlogins",
+                "formal-name": "Maximum Concurrent Logins",
+                "description": "\n         For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.\n         Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.\n      ",
+                "bindings": [
+                    {
+                        "pattern": "o:component/os:control-implementation/o:implemented-requirements/o:prop[@class='maxlogins']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:component/o:control-implementation/o:implemented-requirements/o:set-parameters",
+                            "key-fields": {
+                                "target": "./@name"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
+            },
+            "banner_text": {
+                "extension-name": "banner_text",
+                "formal-name": "System Use Notification",
+                "description": "\n         System use notification to users before granting access to the system that provides privacy and security notices.\n      ",
+                "bindings": [
+                    {
+                        "pattern": "o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='banner_text']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-back-matter-resource-id",
+                            "target": "o:component/o:control-implementation/o:implemented-requirements/o:set-parameters",
+                            "key-fields": {
+                                "target": "./@name"
+                            },
+                            "remarks": "When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section."
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

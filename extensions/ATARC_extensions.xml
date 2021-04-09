@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extensions  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="CB987D0C-B828-41D2-9736-E2D91CB75783" >
+   <metadata>
+      <title>[EXPERIMENTAL] ATARC xtension for InSpec Automation [DRAFT]</title>
+      <published>2021-02-23T00:00:00Z</published>
+      <last-modified>2021-02-23T00:00:00Z</last-modified>
+      <version>DRAFT-01</version>
+      <oscal-version>1.0.0-rc1</oscal-version>
+      <revisions>
+         <revision>
+            <published>2021-02-23T00:00:00Z</published>
+            <version>DRAFT-01</version>
+            <prop name="party-uuid" ns="https://atarc.org/ns/oscal">f042e28d-b56c-47a0-913e-f0780c1eb3f8</prop>
+            <remarks>
+               <p>Initial draft.</p>
+            </remarks>
+         </revision>
+      </revisions>
+      
+      <role id="prepared-by">
+         <title>Prepared By</title>
+         <description>
+            <p>The ATARC Working Group for DevSecOps and OSCAL</p>
+         </description>
+      </role>
+      
+      <party uuid="88b4da13-bce0-44a4-9d4e-6361392e4487" type="organization">
+         <name>The Advanced Technology Academic Research Center (ATARC)</name>
+         <short-name>ATARC</short-name>
+         <link href="https://atarc.org"/>
+         <email-address>info@atarc.org</email-address>
+         <address type="work">
+            <addr-line>2200 Wilson Boulevard</addr-line>
+            <city>Arlington</city>
+            <state>VA</state>
+            <postal-code>22201</postal-code>/>
+            <country>US</country>
+         </address>
+         <remarks>
+            <p>This party helped prepare this reference component as part of an ATARC pilot.</p>
+         </remarks>
+      </party>
+      
+      <responsible-party role-id="prepared-by">
+         <party-uuid>45275ef8-4952-499c-9378-31f8a87d4104</party-uuid>
+      </responsible-party>
+      
+      <remarks>
+         <p>This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet ATARC requirements.</p>
+         <p>It provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary.</p>
+         <p>They realize a mapping between OSCAL requirements for a FedRAMP SSP component and test criteria and testing tools part of the MITRE Security Automation Framework (SAF).</p>
+      </remarks>
+   </metadata>
+
+   
+   <!-- ===================================================================== -->
+   <!--  OSCAL Extension Namespace Value  -->
+   <!-- ===================================================================== -->
+
+   <extension-namespace ns="https://atarc.org/ns/oscal" />
+
+   <!-- ===================================================================== -->
+   <!--  EXTENSIONS  -->
+   <!-- ===================================================================== -->
+
+   <extension id="assessment-method-id">
+      <extension-name>assessment-method-id</extension-name>
+      <formal-name>Identifier of Assessment Method Metadata</formal-name>
+      <description>Provides the UUID used as a lookup key to find the correct assessment method in resources.</description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='assessment-method-id']" />
+      <constraint>
+         <matches data-type="uuid" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:back-matter/o:resources/@uuid">
+            <key-field target="./@uuid"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
+   <extension id="cci-crosswalk-id">
+      <extension-name>cci-crosswalk-id</extension-name>
+      <formal-name>STIG Control Correlation Identifier</formal-name>
+      <description>Identifier of the relevant DISA CCI that maps concrete  assessment method test to a high-level 800-53 security control.</description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='cci-crosswalk-id']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="unbounded" />
+      </constraint>
+   </extension>
+
+   <extension id="maxlogins">
+      <extension-name>maxlogins</extension-name>
+      <formal-name>Maximum Concurrent Logins</formal-name>
+      <description>
+         <p>For AC-10 and additional controls, indicate which parameter for the implemented requirement of a control implementation is relevant.</p>
+         <p>Do not put the value, identify the parameter by its identifier, and the tool will bind to its @value, and can be reused across implemented requirements.</p>
+      </description>
+      <binding pattern="o:component/os:control-implementation/o:implemented-requirements/o:prop[@class='maxlogins']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:component/o:control-implementation/o:implemented-requirements/o:set-parameters">
+            <key-field target="./@name"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
+   <extension id="banner_text">
+      <extension-name>banner_text</extension-name>
+      <formal-name>System Use Notification</formal-name>
+      <description>
+         <p>System use notification to users before granting access to the system that provides privacy and security notices.</p>
+      </description>
+      <binding pattern="o:component/o:control-implementation/o:implemented-requirements/o:prop[@class='banner_text']" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <index-has-key name="index-back-matter-resource-id" target="o:component/o:control-implementation/o:implemented-requirements/o:set-parameters">
+            <key-field target="./@name"/>
+            <remarks><p>When specifying an assessment method, you must provide a valid UUID for method metadata as defined in the resources section.</p></remarks>
+         </index-has-key>
+      </constraint>
+   </extension>
+
+</extensions>
